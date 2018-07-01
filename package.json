@@ -1,7 +1,9 @@
 {
   "name": "techstack21",
   "version": "3.0.0",
-  "engines": {},
+  "engines": {
+    "node": "7.10.1"
+  },
   "keywords": [
     "util",
     "functional",
@@ -27,12 +29,12 @@
     "googleanalytics": "^0.3.7",
     "googleapis": "^16.1.0",
     "http": "0.0.0",
-    "mongoose": "^5.0.17",
+    "mongoose": "^5.1.7",
     "njwt": "^0.3.2",
     "node-linkedin": "^0.5.4",
     "node-persist": "^2.1.0",
     "node-uuid": "^1.4.7",
-    "npm": "^6.0.1",
+    "npm": "^6.1.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",
