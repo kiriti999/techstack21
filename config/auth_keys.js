@@ -3,8 +3,8 @@
 module.exports = {
 
     google: {
-        clientID: "1052712509031-ejf42d640evdphia01sh1205evfvnr42.apps.googleusercontent.com",
-        clientSecret: "CZp0GrJ3_Dyl_cnpZt2nt2kE"
+        clientID: "348308192190-2qt7m0fdfalqi6kgqu4ui0lkp1igaarq.apps.googleusercontent.com",
+        clientSecret: "Cm94wNw3AvxeRFaRqdUIBBWp"
     },
 
     facebook: {
