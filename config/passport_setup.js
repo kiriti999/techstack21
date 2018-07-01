@@ -49,7 +49,7 @@ passport.use(new GoogleStrategy({
             "username": profile.emails[0].value,
             "profilePhoto": profile.photos[0].value,
             "googleId": profile.id,
-            "role": profile.emails[0].value === 'kiriti.k999@gmail.com' ? 'ROLE_ADMIN' : 'ROLE_USER',
+            "role": keys.admins.indexOf(profile.emails[0].value) ? 'ROLE_ADMIN' : 'ROLE_USER',
             "accessToken": token
         });
 

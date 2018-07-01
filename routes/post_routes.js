@@ -218,19 +218,9 @@ function getOAuthClient() {
     return new OAuth2(keys.google.clientID, keys.google.clientSecret, commons.socialLogin_call_back_url);
 }
 
-
 function createGoogleBloggerPost(req, res, next) {
 
     var oauth2Client = getOAuthClient();
-
-    //    var startIndex = req.body.details.indexOf('<code>');
-    //    var endIndex = req.body.details.indexOf('</code>');
-    //    var codeBlock = req.body.details.substring(startIndex, endIndex);
-    //    var formattedCode = '<pre class="brush:csharp">\n\n'+codeBlock+'</pre>';
-    //    
-    //    var modifiedText = '<div style="white-space: pre-wrap;">'+ (req.body.details.replace(codeBlock, formattedCode)) + '</div>';
-    //    
-    //    
     var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details + '<span style=" font-size: 17px;">Check out more articles at: <a href="http://www.techstack21.com">www.techstack21.com</a></span>' + '</div>';
     var blogParams = {
         title: req.body.title,
@@ -243,15 +233,6 @@ function createGoogleBloggerPost(req, res, next) {
 
         if (!err) {
             oauth2Client.setCredentials(tokens);
-            console.log('');
-            console.log('======================================================================');
-            console.log('Success Getting BloggerAPI Token', tokens);
-            console.log('======================================================================');
-            console.log('');
-            console.log('=======================================================================');
-            console.log('server blogger api request params: ', blogParams);
-            console.log('=======================================================================');
-            console.log('');
 
             var options = {
                 uri: 'https://www.googleapis.com/blogger/v3/blogs/' + commons.google_blogger.id + '/posts/',
@@ -276,9 +257,7 @@ function createGoogleBloggerPost(req, res, next) {
                 })
                 .catch(function (err) {
                     console.log('=================================');
-                    console.log('=================================');
                     console.error('POST error ', err.stack);
-                    console.log('=================================');
                     console.log('=================================');
                     return res.status(res.statusCode).send(err);
                 });
