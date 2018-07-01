@@ -185,7 +185,7 @@
         function loadMore() {
             if (DataMixin.data.categoryType == 'All') {
                 console.log('getting more articles...');
-                DataMixin.get_data_on_scrollEnd(3, DataMixin.data.topics.length);
+                DataMixin.get_data_on_scrollEnd(3, DataMixin.data.topics.length + 1);
             }
         }
 
