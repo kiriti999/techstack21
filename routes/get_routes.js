@@ -91,7 +91,7 @@ function logout(req, res, next) {
 function getDataOnScrollEnd(req, res, next) {
 
     articleModel
-        .find({})
+        .find({}).sort({ $natural: -1 })
         .skip(parseInt(req.params.offset, 10))
         .limit(parseInt(req.params.limit, 10))
         .exec(function (err, articles) {
