@@ -10,7 +10,7 @@ module.exports = {
     },
 
     facebook: {
-        clientID: "949326931902885",
+        clientID: "215684629256296",
         clientSecret: "0c908d1711dc297bded6a76cfcba69c2"
     },
 
