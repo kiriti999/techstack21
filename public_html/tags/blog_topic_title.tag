@@ -73,14 +73,14 @@
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='http://techstack21.com/article/{opts.topic.url}'
+                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'
                                         onclick='{fbSharePostAsAdmin}'>
 
                                         <i class='fa fa-facebook' 
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='http://techstack21.com/article/{opts.topic.url}'></i>
+                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'></i>
                                     </a>
                                         <!--Facebook Share ADMIN POST AS PAGE-->
                                 </div>
@@ -246,7 +246,7 @@
                 action_type: 'og.shares',
                 action_properties: JSON.stringify({
                     object: {
-                        'og:url': 'http://techstack21.com/article/' + opts.topic.url,
+                        'og:url': 'http://www.techstack21.com/article/' + opts.topic.url,
                         'og:title': opts.topic.title,
                         'og:description': opts.topic.details,
                         //'og:image': opts.topic.postImageUrl

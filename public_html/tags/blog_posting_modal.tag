@@ -57,22 +57,6 @@
                         <div><label>Select Category:</label></div>
                         <div>
                             <select  multiple="multiple" class="styled-select" id="category_select">
-                                <!--  <option value="Javascript">Javascript</option>
-                                <option value="NodeJs">NodeJs</option>
-                                <option value="Git">Git</option> 
-                                <option value="Jquery">Jquery</option>
-                                <option value="ReactJs">ReactJs</option>
-                                <option value="MongoDb">MongoDb</option>
-                                <option value="JointJs">JointJs</option>
-                                <option value="D3Js">D3Js</option>
-                                <option value="Angular">Angular</option>
-                                <option value="Java">Java</option>
-                                <option value="Quiz">Quiz</option>
-                                <option value="HTML">HTML</option>
-                                <option value="CSS">CSS</option>
-                                <option value="Java">Java</option>
-                                <option value="LatestTech">Latest Tech</option>
-                                <option value="Misc">Misc</option>  -->
                                 <option each="{item, i in data.categories}" value="{item.category}">{item.category}</option>
                             </select>
                         </div>
