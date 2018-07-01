@@ -40,7 +40,7 @@
                     <div class='row'>
                         <!--DATE--> <!--DETAILS-->
                         <div class='col-md-12 col-sm-12 col-xs-12'>
-                            <h5 class="blog_time">By techstack21 on {opts.topic.created_at.split("T")[0]}</h5>
+                            <h5 class="blog_time" style="margin-top: 0;">By techstack21 on {opts.topic.created_at.split("T")[0]}</h5>
                         </div>
                         <div class='col-md-12 col-sm-10 col-xs-12'>
                             <raw id="brief_topic_details"></raw>

@@ -15,7 +15,7 @@
                     <div class='row'>
                         <div class='col-md-12 col-md-12 col-xs-12 mobile_margin_bottom10'>
                             <div class='blog_time'>
-                                <h5 class="blog_time">By techstack21 on {article.created_at}</h5>
+                                <h5 class="blog_time" style="margin-top: 0;">By techstack21 on {article.created_at}</h5>
                             </div>
                         </div>
                     </div>
