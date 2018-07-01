@@ -10,6 +10,7 @@
 @media only screen and (min-width:320px) and (max-width:480px) {
     .mobile_center {
         display: block !important;
+        margin-top: 60px;
     }
     #slideIcon {
         padding-top: 15px;
@@ -49,7 +50,10 @@
         padding: 0!important
     }
     .article_wrap {
-        padding: 60px 0 0
+        padding: 0px 0 0
+    }
+    #signup > #wraper {
+        margin-top: 140px !important;
     }
     .article_subwrap {
         padding: 48px 0

@@ -4097,7 +4097,7 @@ module.exports = function(src) {
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('signup_popup', '<div id="wraper" if="{DataMixin.state==⁗signup_popup⁗}" style="margin-top: -40px;"> <div class="flex-container flex-item-center"> <div class="flex-item"> </div> <div class="flex-item signup_subtite"> </div> <div class="flex-item"> <div class="signupBox"> <div class="fb" data-social="facebook" onclick="{socialAuthentication}"> <i class="fa fa-facebook" style="color: white;"> <span class="">Sign in with Facebook</span> </i> </div> <div class="padding_top10"></div> <div class="gp" data-social="google" onclick="{socialAuthentication}"> <i class="fa fa-google-plus" style="color:white"> <span> Sign in with Google</span> </i> </div> </div> </div> </div> </div>', '', 'id="signup"', function(opts) {
+/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('signup_popup', '<div id="wraper" if="{DataMixin.state==⁗signup_popup⁗}"> <div class="flex-container flex-item-center"> <div class="flex-item"> </div> <div class="flex-item signup_subtite"> </div> <div class="flex-item"> <div class="signupBox"> <div class="fb" data-social="facebook" onclick="{socialAuthentication}"> <i class="fa fa-facebook" style="color: white;"> <span class="">Sign in with Facebook</span> </i> </div> <div class="padding_top10"></div> <div class="gp" data-social="google" onclick="{socialAuthentication}"> <i class="fa fa-google-plus" style="color:white"> <span> Sign in with Google</span> </i> </div> </div> </div> </div> </div>', '', 'id="signup"', function(opts) {
 
     this.mixin(SharedMixin);
     var self = this;

@@ -1,5 +1,5 @@
 <signup_popup id='signup'>
-    <div id="wraper" if={DataMixin.state=="signup_popup"} style="margin-top: -40px;">
+    <div id="wraper" if={DataMixin.state=="signup_popup"}>
 
         <div class="flex-container flex-item-center">
             <div class="flex-item">
