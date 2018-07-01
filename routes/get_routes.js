@@ -92,8 +92,8 @@ function getDataOnScrollEnd(req, res, next) {
 
     articleModel
         .find({})
-        .skip(parseInt(req.params.offset), 10)
-        .limit(parseInt(req.params.limit), 10)
+        .skip(parseInt(req.params.offset))
+        .limit(parseInt(req.params.limit))
         .exec(function (err, articles) {
             if (err) {
                 throw err;
