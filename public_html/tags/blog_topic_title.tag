@@ -73,14 +73,14 @@
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='https://techstack21.com/article/{opts.topic.url}'
+                                        data-url='http://techstack21.com/article/{opts.topic.url}'
                                         onclick='{fbSharePostAsAdmin}'>
 
                                         <i class='fa fa-facebook' 
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='https://techstack21.com/article/{opts.topic.url}'></i>
+                                        data-url='http://techstack21.com/article/{opts.topic.url}'></i>
                                     </a>
                                         <!--Facebook Share ADMIN POST AS PAGE-->
                                 </div>
