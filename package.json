@@ -1,9 +1,7 @@
 {
-  "name": "techstack21_blog",
+  "name": "techstack21",
   "version": "3.0.0",
-  "engines": {
-    "node": "7.10.1"
-  },
+  "engines": {},
   "keywords": [
     "util",
     "functional",
