@@ -37,7 +37,7 @@
                                 <span onclick="{formatText}" id="link"><i class="fa fa-link" aria-hidden="true"></i></span>
                             </div>
                             <div class="editor-icons">
-                                <span onclick="{formatText2}" id="bullet"><i class="fas fa-list" aria-hidden="true"></i></span>
+                                <span onclick="{formatText2}" id="bullet"><i class="fa fa-list" aria-hidden="true"></i></span>
                             </div>
                         </div>
 
