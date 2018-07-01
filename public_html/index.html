@@ -189,16 +189,27 @@
             }
         }
 
+        function throttle(fn, wait) {
+            var time = Date.now();
+            return function () {
+                if ((time + wait - Date.now()) < 0) {
+                    fn();
+                    time = Date.now();
+                }
+            }
+        }
+
         function bindScroll() {
+            console.log('scroll check...');
             if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
                 $(window).unbind('scroll');
                 setTimeout(function () {
                     loadMore();
-                }, 1000)
+                }, 300)
             }
         }
 
-        $(window).scroll(bindScroll);
+        $(window).scroll(throttle(bindScroll, 50));
     </script>
 
 
