@@ -1,0 +1,14 @@
+{
+    "commons": {
+        "api_url": "http://localhost:4567",
+        "socialLogin_call_back_url": "http://www.techstack21.com",
+        "_socialLogin_call_back_url": "http://localhost:5027",
+        "FBVars": {
+            "fbAppId": "949326931902885"
+        },
+        "google_blogger": {
+            "id": "4484680272883883664"
+        },
+        "server_port": "5027"
+    }
+}
