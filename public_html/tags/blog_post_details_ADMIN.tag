@@ -125,7 +125,7 @@
         
         socialSharePostAsUser(e){
             $("meta[property='og\\:title']").attr("content", opts.topic.title);
-            var url = 'http://twitter.com/share?text='+opts.topic.title+'&url=http://www.techstack21.com&hashtags=Divine';
+            var url = 'http://twitter.com/share?text='+opts.topic.title+'&url=www.techstack21.com&hashtags=blogger';
             window.open(url, 'popup', 'width=500,height=500');
         }
         
