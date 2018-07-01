@@ -33,7 +33,7 @@ function getPostByCategory(req, res, next) {
 
     articleModel.aggregate([
         {
-            $match:{categories: req.params.name}
+            $match: { categories: req.params.name }
         },
         {
             $lookup: {
@@ -43,8 +43,8 @@ function getPostByCategory(req, res, next) {
                 as: "articlesByCategory"
             }
         }
-    ], function(err, articlesByCategory) {
-        if(err) throw err;
+    ], function (err, articlesByCategory) {
+        if (err) throw err;
         console.log('');
         console.log('');
         console.log('article by category ', articlesByCategory);
@@ -67,7 +67,7 @@ function createCategory(req, res, next) {
 }
 
 function deleteCategory(req, res, next) {
-    categoryModel.remove( {category: req.params.name}, function (err, category) {
+    categoryModel.remove({ category: req.params.name }, function (err, category) {
         if (err) throw err;
         console.log('category deleted', req.params.name);
         return res.sendStatus(200);
@@ -149,7 +149,7 @@ function loadByUrl(req, res, next) {
     console.log(' ');
     console.log(' ');
     console.log(' ');
-    
+
 
     articleModel.find({ url: unescaped_url }, function (err, article) {
         if (err) {
@@ -168,10 +168,10 @@ function loadByUrl(req, res, next) {
         console.log('article[0].title ', typeof article[0].title !== 'undefined' ? article[0].title : '');
         console.log(' ');
         console.log(' ');
-        console.log('article[0].postImageUrl ', typeof article[0].postImageUrl !=='undefined' ? article[0].postImageUrl : '');
+        console.log('article[0].postImageUrl ', typeof article[0].postImageUrl !== 'undefined' ? article[0].postImageUrl : '');
         console.log(' ');
         console.log(' ');
-        console.log('article[0].details ', typeof article[0].details !=='undefined' ? article[0].details : '');
+        console.log('article[0].details ', typeof article[0].details !== 'undefined' ? article[0].details : '');
         console.log(' ');
         console.log(' ');
         console.log('article[0].url ', typeof article[0].url !== 'undefined' ? article[0].url : '');
@@ -188,9 +188,9 @@ function loadByUrl(req, res, next) {
             console.log('.............SERVER-SIDE-RENDERING:START.....................');
             console.log('.............................................................');
 
-            header_tag_rendered = riot.render(header_tag, { role: 'ROLE_USER'});
-            blog_slide_menu_tag_rendered = riot.render(blog_slide_menu_tag, { role: 'ROLE_USER'});
-            blog_tag_rendered = riot.render(blog_post_details_USER, {article: (article[0]) });
+            header_tag_rendered = riot.render(header_tag, { role: 'ROLE_USER' });
+            blog_slide_menu_tag_rendered = riot.render(blog_slide_menu_tag, { role: 'ROLE_USER' });
+            blog_tag_rendered = riot.render(blog_post_details_USER, { article: (article[0]) });
             blog_sidebar_tag_rendered = riot.render(blog_sidebar_tag, { role: 'ROLE_USER' });
             footer_tag_rendered = riot.render(footer_tag);
 
@@ -239,7 +239,7 @@ function deleteTopic(req, res, next) {
         console.log('');
         console.log('');
 
-        category_article_model.remove({article_id: req.params.deleteId}, function(err, deletedArticleCategoryMapping) {
+        category_article_model.remove({ article_id: req.params.deleteId }, function (err, deletedArticleCategoryMapping) {
             if (err) {
                 throw err;
             }
