@@ -96,7 +96,7 @@
                                 </div>
                                 <div>
                                     <!--linkedin share-->
-                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=http://www.techstack21.com/article/{opts.topic.url}+&title={opts.topic.title}&summary=""&source=techstack21.in' target="_blank"  id="fb_{opts.topic._id}" >
+                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=www.techstack21.com/article/{opts.topic.url}+&title={opts.topic.title}&summary=""&source=techstack21.in' target="_blank"  id="fb_{opts.topic._id}" >
                                         <i class='fa fa-linkedin'></i>
                                     </a>
                                     <!--linkedin share-->
@@ -109,20 +109,20 @@
                                        data-title={opts.topic.title}
                                        data-details='{opts.topic.details}'
                                        data-imageurl='{opts.topic.postImageUrl}'
-                                       data-url='http://www.techstack21.com/article/{opts.topic.url}' 
+                                       data-url='www.techstack21.com/article/{opts.topic.url}' 
                                        onclick="{createGoogleBloggerPost}">
 
                                         <i class='fa fa-google-plus'
                                            data-title={opts.topic.title}
                                            data-details='{opts.topic.details}'
                                            data-imageurl='{opts.topic.postImageUrl}'
-                                           data-url='http://www.techstack21.com/article/{opts.topic.url}'></i>
+                                           data-url='www.techstack21.com/article/{opts.topic.url}'></i>
                                     </a>
                                     <!--Google share as ADMIN-->
                                 </div>
                                 <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
                                     <!--Google share as USER-->
-                                    <a class="icon social tw" href="//plus.google.com/share?&url=http://www.techstack21.com/article/{opts.topic.url}" target="_blank" 
+                                    <a class="icon social tw" href="//plus.google.com/share?&url=www.techstack21.com/article/{opts.topic.url}" target="_blank" 
                                         onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=400,height=620'); 
                                         return false;" alt="Share on Google+">
                                         <i class='fa fa-google-plus'></i>

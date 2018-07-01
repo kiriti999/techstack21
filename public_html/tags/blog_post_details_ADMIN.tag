@@ -38,14 +38,14 @@
                                             data-title={post_details.title}
                                             data-details='{post_details.details}'
                                             data-postImageUrl='{post_details.postImageUrl}'
-                                            data-url='http://www.techstack21.com/article/{post_details.url}'
+                                            data-url='www.techstack21.com/article/{post_details.url}'
                                             onclick='{sharePostAsAdmin}'>
 
                                             <i class='fa fa-facebook' 
                                             data-title={post_details.title}
                                             data-details='{post_details.details}'
                                             data-postImageUrl='{post_details.postImageUrl}'
-                                            data-url='http://www.techstack21.com/article/{post_details.url}'></i>
+                                            data-url='www.techstack21.com/article/{post_details.url}'></i>
                                         </a>
                                          <!--Facebook Share ADMIN POST AS PAGE-->
                                     </div>
@@ -58,7 +58,7 @@
                                     </div>
                                     <div>
                                         <!--linkedin share-->
-                                        <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=http://www.techstack21.com/article/{post_details.title}+&title={post_details.title}&summary=""&source=techstack21.com' target="_blank"  id="fb_{post_details.article_id}" >
+                                        <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=www.techstack21.com/article/{post_details.title}+&title={post_details.title}&summary=""&source=techstack21.com' target="_blank"  id="fb_{post_details.article_id}" >
                                             <i class='fa fa-linkedin'></i>
                                         </a>
                                         <!--linkedin share-->
@@ -71,14 +71,14 @@
                                             data-title={post_details.title}
                                             data-details='{post_details}'
                                             data-postImageUrl='{post_details.postImageUrl}'
-                                            data-url='http://www.techstack21.com/article/{post_details.title}' 
+                                            data-url='www.techstack21.com/article/{post_details.title}' 
                                             onclick="{createGoogleBloggerPost}">
 
                                             <i class='fa fa-google-plus'
                                             data-title={post_details.title}
                                             data-details='{post_details}'
                                             data-postImageUrl='{post_details.postImageUrl}'
-                                            data-url='http://www.techstack21.com/article/{post_details.title}'></i>
+                                            data-url='www.techstack21.com/article/{post_details.title}'></i>
                                         </a>
                                         <!--Google share as ADMIN-->
                                     </div>

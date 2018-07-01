@@ -40,20 +40,20 @@
                                             data-title={article.title}
                                             data-details='{article.details}'
                                             data-postImageUrl='{article.url}'
-                                            data-url='http://www.techstack21.com/article/{article.url}'
+                                            data-url='www.techstack21.com/article/{article.url}'
                                             onclick='{fbSharePostAsUser}'>
 
                                             <i class='fa fa-facebook' 
                                             data-title={article.title}
                                             data-details='{article.details}'
                                             data-postImageUrl='{article.url}'
-                                            data-url='http://www.techstack21.com/article/{article.url}'></i>
+                                            data-url='www.techstack21.com/article/{article.url}'></i>
                                         </a>
                                          <!--Facebook Share USER-->
                                     </div>
                                 <div>
                                     <!--twitter share-->
-                                    <a id="twitterShare" href='http://twitter.com/share?text={article.title}&url=http://www.techstack21.com/article/{article.url}&hashtags=tech' target="_blank" class='icon social tw' data-event="Twitter">
+                                    <a id="twitterShare" href='http://twitter.com/share?text={article.title}&url=www.techstack21.com/article/{article.url}&hashtags=tech' target="_blank" class='icon social tw' data-event="Twitter">
                                         <i class='fa fa-twitter'></i>
                                     </a>
                                     
@@ -61,7 +61,7 @@
                                 </div>
                                 <div>
                                     <!--linkedin share-->
-                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=http://www.techstack21.com/article/{article.url}+&title={article.title}&summary=""&source=techstack21.com' target="_blank" id="fb_{article.article_id}" >
+                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=www.techstack21.com/article/{article.url}+&title={article.title}&summary=""&source=techstack21.com' target="_blank" id="fb_{article.article_id}" >
                                         <i class='fa fa-linkedin'></i>
                                     </a>
                                     <!--linkedin share-->
@@ -69,7 +69,7 @@
 
                                 <div>
                                     <!--  google share  -->
-                                    <a class="icon social tw" href="//plus.google.com/share?&url=http://www.techstack21.com/article/{article.url}" onclick="window.open(this.href, '','scrollbars=1', 'width=400,height=620'); return false;">
+                                    <a class="icon social tw" href="//plus.google.com/share?&url=www.techstack21.com/article/{article.url}" onclick="window.open(this.href, '','scrollbars=1', 'width=400,height=620'); return false;">
                                         <i class='fa fa-google-plus'></i>
                                     </a>
                                 </div>
