@@ -35,6 +35,7 @@ function getLinkedInToken(req, res, next) {
 function getRecent(req, res, next) {
     articleModel
         .find({})
+        .sort({ $natural: -1 })
         .skip(parseInt(req.body.offset), 10)
         .limit(parseInt(req.body.limit), 10)
         .exec(function (err, articles) {
@@ -86,8 +87,8 @@ function new_topic(req, res, next) {
                     if (err) throw err;
                     console.log('');
                     console.log('');
-                    console.log(index+': new Category created with category ID: ', new_category_article._id);
-                    console.log(index+': new Category created with article ID: ', new_category_article.article_id);
+                    console.log(index + ': new Category created with category ID: ', new_category_article._id);
+                    console.log(index + ': new Category created with article ID: ', new_category_article.article_id);
                     console.log('');
                     console.log('');
                 })
@@ -134,7 +135,7 @@ function update_topic(req, res, next) {
         console.log(' ');
         console.log(' ');
         console.log(' ');
-        
+
         return res.send(unescapeArticle(updatedArticle));
     })
 }
@@ -230,7 +231,7 @@ function createGoogleBloggerPost(req, res, next) {
     //    var modifiedText = '<div style="white-space: pre-wrap;">'+ (req.body.details.replace(codeBlock, formattedCode)) + '</div>';
     //    
     //    
-    var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details +  '<span style=" font-size: 17px;">Check out more articles at: <a href="http://www.techstack21.com">www.techstack21.com</a></span>'  + '</div>';
+    var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details + '<span style=" font-size: 17px;">Check out more articles at: <a href="http://www.techstack21.com">www.techstack21.com</a></span>' + '</div>';
     var blogParams = {
         title: req.body.title,
         content: modifiedText,
@@ -253,7 +254,7 @@ function createGoogleBloggerPost(req, res, next) {
             console.log('');
 
             var options = {
-                uri: 'https://www.googleapis.com/blogger/v3/blogs/'+commons.google_blogger.id+'/posts/',
+                uri: 'https://www.googleapis.com/blogger/v3/blogs/' + commons.google_blogger.id + '/posts/',
                 method: 'POST',
                 body: blogParams,
                 headers: {
