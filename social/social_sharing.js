@@ -21,10 +21,7 @@ social_sharing.post('/sharePost', function (req, res, next) {
     console.log('Sharing posts as Admin');
     console.log('========================');
 
-    //TOKEN HARD CODED HERE
-    const access_token = 'EAAaCu2cUrR4BACe5Qw8oTekcfuHTUItwyDojC7Njza2flGHGdnAsZBwhdpR9ad8DklUVkkOa3d9ZAr1rpBa4Swy7NO5gBqOfUW7ZBXD85G1mCWru6OZBn2ZAuEevjh9NSe7ZA2UqVDNhZBo2ivLLSAJp3YvbuOhglWrFuFN9WJtmBUad08rKZCZCEqx9cqB6FQmYZD';
-
-    FB.setAccessToken(access_token);
+    FB.setAccessToken(keys.facebook.permanentToken);
     var body = {
         title: req.body.title,
         details: req.body.details,

@@ -10,8 +10,9 @@ module.exports = {
     },
 
     facebook: {
-        clientID: "215684629256296",
-        clientSecret: "0c908d1711dc297bded6a76cfcba69c2"
+        clientID: "227923824483815",
+        clientSecret: "0c908d1711dc297bded6a76cfcba69c2",
+        permanentToken: 'EAADPS6aYHecBADEDVs26pZC5HVikGGJUgAYC1kJZAVf0aJ5oUdVHyB7SkNapmH6JzjSzZBr7y0cm5Kk9YZBbvyLzj0ZCHhjjgVX7SXD5cqYYkdKI9aePWfkq0Y3lZBYHRBPLWcRjmuB4rqBhV7U5e9TEZAuCkVCKa7bBaRKAPMAGwsG8ZAvEUJvFEeL0q3geyQUZD'
     },
 
     cloudinary: {
