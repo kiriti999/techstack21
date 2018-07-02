@@ -8,6 +8,7 @@
 }
 
 @media only screen and (min-width:320px) and (max-width:480px) {
+    
     .mobile_center {
         display: block !important;
         margin-top: 60px;
@@ -78,10 +79,6 @@
     .Facebook{
         display: none !important;
     }
-    .footer{
-        position: fixed;
-        bottom: 42px;
-    }
 }
 
 @media only screen and (min-width:320px) and (max-width:568px) {
@@ -111,10 +108,6 @@
     }
     #loginLogo{
         display: none;
-    }
-    .footer{
-        position: fixed;
-        bottom: 42px;
     }
 }
 
@@ -149,6 +142,9 @@
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
+    .wrapper {
+        min-height: 800px;
+    }
     .mobile_center {
         display: block !important;
     }
@@ -176,10 +172,6 @@
 		position: absolute;
 		right: 0;
 	}
-    .footer{
-        bottom: 20px;
-        position: fixed;
-    }
 }
 
 @media (max-width:768px) {
@@ -189,25 +181,10 @@
     .main {
         padding: 0!important
     }
-    .footer{
-        bottom: 20px;
-        position: fixed;
-    }
 }
 
 @media (min-width:769px) and (max-width:992px) {
     .main {
         padding: 0!important
-    }
-    .footer{
-        bottom: 20px;
-        position: fixed;
-    }
-}
-
-@media (min-width:1024px) and (max-width:1366px) {
-    .footer{
-        bottom: 20px;
-        position: fixed;
     }
 }

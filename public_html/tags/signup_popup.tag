@@ -34,6 +34,14 @@
         
     </div>
 
+    <style>
+        #footerText {
+            padding: 5px 10px;
+            bottom: 0px;
+            position: fixed;
+        }
+    </style>
+
     <script>
     
     this.mixin(SharedMixin);
