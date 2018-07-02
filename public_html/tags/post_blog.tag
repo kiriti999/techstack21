@@ -11,12 +11,8 @@
     <!--BLOG_EDIT_MODAL-->
 
     <!--BLOG TITLES-->
-        <blog_topic_title each="{item , i in data.blogTopicsArr}" index={i} id={item._id} topic={item}></blog_topic_title>
+        <blog_topic_title each="{item , i in data.blogTopicsArr}" index={i} id={item._id} topic="{item}"></blog_topic_title>
     <!--BLOG TITLES-->
-
-    <!--  <div class="flex-container flex-item-center" style="padding-bottom: 40px;" if="{data.blogTopicsArr.length > 0}">
-        <div class="flex-item" id="loadMore" onclick="{loadMore}">Load more</div>
-    </div>  -->
 </div>  
 
     

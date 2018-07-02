@@ -136,12 +136,8 @@ ul>li:hover {
     overflow: auto
 }
 
-/*Gshare button*/
-#gShare{
-}
-
 .listing-items{
-    margin: 0 0 40px;
+    margin: 0 0 35px;
     border: 1px solid rgba(0,0,0,.1)!important;
 }
 
