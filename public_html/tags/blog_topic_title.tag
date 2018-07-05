@@ -150,6 +150,10 @@
             self.brief_topic_details.innerHTML = opts.topic.details.substring(0, 200) + "...";
         });
 
+        getProps(e) {
+
+        }
+
         
         openEditModal(e){
             $('#blog_edit_modal').modal('show');

@@ -3818,6 +3818,10 @@ module.exports = function(src) {
             self.brief_topic_details.innerHTML = opts.topic.details.substring(0, 200) + "...";
         });
 
+        this.getProps = function(e) {
+
+        }.bind(this)
+
         this.openEditModal = function(e){
             $('#blog_edit_modal').modal('show');
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
@@ -4141,25 +4145,25 @@ module.exports = function(src) {
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(46)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/js/textWrapper.js")
+__webpack_require__(2)(__webpack_require__(46)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/js/textWrapper.js")
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(47)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/PopupTools.min.js")
+__webpack_require__(2)(__webpack_require__(47)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/PopupTools.min.js")
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(48)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/classie.js")
+__webpack_require__(2)(__webpack_require__(48)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/classie.js")
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(49)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/nprogress.js")
+__webpack_require__(2)(__webpack_require__(49)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/nprogress.js")
 
 /***/ }),
 /* 19 */

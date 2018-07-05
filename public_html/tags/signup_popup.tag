@@ -78,36 +78,5 @@
         });
     }
 
-//    getCommentCount(){
-//        console.log('getting comment count...');
-//        $.ajax({
-//            url: '/getAllComments/',
-//            type: 'GET',
-//            async: true,
-//            success: function(res){
-//                console.log('Fetched comments on load: ', res);
-//
-//                self.commentCount = Object.create(null);
-//                res.forEach(function (a, i) {
-//                    self.commentCount[a.topicId] = (self.commentCount[a.topicId] || 0) + 1;
-//                });
-//
-//                DataMixin.data.topics.forEach(function(o) {
-//                    var c = self.commentCount[o.topicId];
-//                    if(c !== undefined)
-//                        o.commentCount = c;
-//               });
-////                    console.log('DataMixin.data.topics ', DataMixin.data.topics);
-//
-//                //UPDATE AFTER GETTING COMMENT COUNT
-////                    self.update(self.data.topics);
-//                self.observable.trigger('data_on_login');
-//            },
-//            error: function(err){
-//                console.log('unable to get all comments ', err);
-//            }
-//        })
-//    }
-
     </script>
 </signup_popup>
