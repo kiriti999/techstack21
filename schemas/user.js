@@ -56,9 +56,9 @@ UserSchema.statics.authenticate = function (email, password, callback) {
                 } else {
                     return callback();
                 }
-            })
+            });
         });
-}
+};
 
 //hashing a password before saving it to the database
 // UserSchema.pre('save', function (next) {

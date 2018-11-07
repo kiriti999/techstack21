@@ -130,7 +130,7 @@
 
         function bindScroll() {
             console.log('scroll check...');
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
                 $(window).unbind('scroll');
                 setTimeout(function () {
                     loadMore();

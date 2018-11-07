@@ -23,7 +23,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
 
 //auth wth facebook
 router.get("/facebook", passport.authenticate("facebook", {
-    scope: ["email", "publish_actions", "manage_pages", "publish_pages"]
+    scope: ["email", "manage_pages"]
 }));
 
 // handle the callback after facebook has authenticated the user
