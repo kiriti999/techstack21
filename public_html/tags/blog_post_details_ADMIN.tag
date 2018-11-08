@@ -113,7 +113,6 @@
     <script>
         var self = this;
         self.data = {};
-        var page = null;
         
         if(opts.details != null){
             self.post_details = opts.details;
@@ -124,7 +123,6 @@
             console.error(err.message + ' in ' + err.riotData.tagName); // your error logic here
         }
         
-        //Facebook share as User
         socialSharePostAsUser(e){
             $("meta[property='og\\:title']").attr("content", opts.topic.title);
             var url = 'http://twitter.com/share?text='+opts.topic.title+'&url=www.techstack21.com&hashtags=blogger';
@@ -164,6 +162,7 @@
             console.log('google blogger params ', params);
         }
         
+        
         shareToLinked(e){
             popupTools.popup('shareToLinked/', "linkedin Authentication", {}, function (err, user) {
                 if (err) {
@@ -174,43 +173,33 @@
                 }
             });
         }
-
-        fbLogin() {
-            FB.login(function(response) {
-                 if (response.authResponse) {
-                    // Get and display the user profile data
-                    self.getFbUserData();
-                } else {
-                    alert('User cancelled login or did not fully authorize.');
-                }
-            }, {'scope': 'email','manage_pages','publish_actions','publish_stream'});
-        }
-
-        getFbUserData() {
-            FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-            function (response) {
-                page = response.data[0];
-                console.log('page', page);
-                DataMixin.data.username = response.first_name;
-                DataMixin.data.userImage = response.picture.data.url;
-                var user = {
-                    username: response.first_name + " " + response.last_name
-                    profilePhoto: response.picture.data.url
-                }
-                DataMixin.setAuthentication(user);
-
-                FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
-                    function(res) { console.log("after posting to page: ", res) }
-                )
-                
-                //document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
-            });
-        }
         
-        //Facebook share as Admin
-        sharePostAsAdmin(e) {
-            self.fbLogin();
+        //Facebook share
+        sharePostAsAdmin(e){
             console.log('sharing posts as Admin...');
+            
+            var params = {
+                title: e.target.dataset.title,
+                details: e.target.dataset.details,
+                postImageUrl: e.target.dataset.postImageUrl,
+                url: e.target.dataset.url
+            }
+            console.log('params ', params);
+            
+            $.ajax({
+                url:'/sharePost',
+                type: 'POST',
+                data:params,
+                success: function(res){
+                    alert('FACEBOOK SHARE SUCCESS');
+                    console.log('FACEBOOK SHARE SUCCESS:' , res);
+                    
+                },
+                error: function(err){
+                    alert('FACEBOOK SHARE FAILED');
+                    console.log('FACEBOOK SHARE FAILED:' ,err);
+                }
+            });
         }
         
     </script>

@@ -150,11 +150,6 @@
             self.brief_topic_details.innerHTML = opts.topic.details.substring(0, 200) + "...";
         });
 
-        getProps(e) {
-
-        }
-
-        
         openEditModal(e){
             $('#blog_edit_modal').modal('show');
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
@@ -285,29 +280,41 @@
             return unicode;
         }
 
+        fbLogin() {
+            FB.login(function(response) {
+                 if (response.authResponse) {
+                    // Get and display the user profile data
+                    self.getFbUserData();
+                } else {
+                    alert('User cancelled login or did not fully authorize.');
+                }
+            }, {'scope': 'email','manage_pages','publish_actions','publish_stream'});
+        }
+
+        getFbUserData() {
+            FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            function (response) {
+                page = response.data[0];
+                console.log('page', page);
+                DataMixin.data.username = response.first_name;
+                DataMixin.data.userImage = response.picture.data.url;
+                var user = {
+                    username: response.first_name + " " + response.last_name
+                    profilePhoto: response.picture.data.url
+                }
+                DataMixin.setAuthentication(user);
+
+                FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
+                    function(res) { console.log("after posting to page: ", res) }
+                )
+                //document.getElementById('userData').innerHTML = '<p><b>FB ID:</b> '+response.id+'</p><p><b>Name:</b> '+response.first_name+' '+response.last_name+'</p><p><b>Email:</b> '+response.email+'</p><p><b>Gender:</b> '+response.gender+'</p><p><b>Locale:</b> '+response.locale+'</p><p><b>Picture:</b> <img src="'+response.picture.data.url+'"/></p><p><b>FB Profile:</b> <a target="_blank" href="'+response.link+'">click to view profile</a></p>';
+            });
+        }
+
         //Facebook Admin share
         fbSharePostAsAdmin(e) {
-            var params = {
-                title: self.toBoldUnicode(e.target.dataset.title),
-                details: e.target.dataset.details,
-                postImageUrl: e.target.dataset.postImageUrl,
-                url: e.target.dataset.url
-            }
-            console.log('fb_shareAsAdmin params ', params);
-            
-            $.ajax({
-                url:'/sharePost',
-                type: 'POST',
-                data:params,
-                success: function(res) {
-                    alert('FACEBOOK SHARE SUCCESS');
-                    console.log('FACEBOOK SHARE SUCCESS:' , res);
-                },
-                error: function(err) {
-                    alert('FACEBOOK SHARE FAILED');
-                    console.log('FACEBOOK SHARE FAILED:' ,err);
-                }
-            });
+            self.fbLogin();
+            console.log('sharing posts as Admin...');
         }
     </script>
     
