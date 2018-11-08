@@ -298,11 +298,11 @@
                 console.log('page', page);
                 DataMixin.data.username = response.first_name;
                 DataMixin.data.userImage = response.picture.data.url;
-                var user = {
-                    username: response.first_name + " " + response.last_name,
-                    profilePhoto: response.picture.data.url
-                };
-                DataMixin.setAuthentication(user);
+                //var user = {
+                    //username: response.first_name + " " + response.last_name,
+                    //profilePhoto: response.picture.data.url
+                //};
+                //DataMixin.setAuthentication(user);
 
                 FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
                     function(res) { console.log("after posting to page: ", res) }
