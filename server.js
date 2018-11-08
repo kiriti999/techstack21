@@ -72,9 +72,11 @@ var port = process.env.PORT || commons.server_port;
 
 app.set('port', (port));
 app.use('/', express.static(__dirname + '/public_html', { maxAge: oneDay }));
-app.listen(app.get('port'), function () {
-    console.log('Node app is running on port', app.get('port'));
-});
+// app.listen(app.get('port'), function () {
+//     console.log('Node app is running on port', app.get('port'));
+// });
+
+https.createServer(options, app).listen(app.get('port'));
 
 
 // =======================
