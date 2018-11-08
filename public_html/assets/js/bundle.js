@@ -3818,10 +3818,6 @@ module.exports = function(src) {
             self.brief_topic_details.innerHTML = opts.topic.details.substring(0, 200) + "...";
         });
 
-        this.getProps = function(e) {
-
-        }.bind(this)
-
         this.openEditModal = function(e){
             $('#blog_edit_modal').modal('show');
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
@@ -3948,28 +3944,39 @@ module.exports = function(src) {
             return unicode;
         }.bind(this)
 
-        this.fbSharePostAsAdmin = function(e) {
-            var params = {
-                title: self.toBoldUnicode(e.target.dataset.title),
-                details: e.target.dataset.details,
-                postImageUrl: e.target.dataset.postImageUrl,
-                url: e.target.dataset.url
-            }
-            console.log('fb_shareAsAdmin params ', params);
+        this.fbLogin = function() {
+            FB.login(function(response) {
+                 if (response.authResponse) {
 
-            $.ajax({
-                url:'/sharePost',
-                type: 'POST',
-                data:params,
-                success: function(res) {
-                    alert('FACEBOOK SHARE SUCCESS');
-                    console.log('FACEBOOK SHARE SUCCESS:' , res);
-                },
-                error: function(err) {
-                    alert('FACEBOOK SHARE FAILED');
-                    console.log('FACEBOOK SHARE FAILED:' ,err);
+                    self.getFbUserData();
+                } else {
+                    alert('User cancelled login or did not fully authorize');
                 }
+            }, {'scope': 'email,manage_pages,publish_actions,publish_stream'} );
+        }.bind(this)
+
+        this.getFbUserData = function() {
+            FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            function (response) {
+                page = response.data[0];
+                console.log('page', page);
+                DataMixin.data.username = response.first_name;
+                DataMixin.data.userImage = response.picture.data.url;
+                var user = {
+                    username: response.first_name + " " + response.last_name,
+                    profilePhoto: response.picture.data.url
+                };
+                DataMixin.setAuthentication(user);
+
+                FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
+                    function(res) { console.log("after posting to page: ", res) }
+                )
             });
+        }.bind(this)
+
+        this.fbSharePostAsAdmin = function(e) {
+            self.fbLogin();
+            console.log('sharing posts as Admin...');
         }.bind(this)
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -4145,25 +4152,25 @@ module.exports = function(src) {
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(46)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/js/textWrapper.js")
+__webpack_require__(2)(__webpack_require__(46)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/js/textWrapper.js")
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(47)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/PopupTools.min.js")
+__webpack_require__(2)(__webpack_require__(47)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/PopupTools.min.js")
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(48)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/classie.js")
+__webpack_require__(2)(__webpack_require__(48)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/classie.js")
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2)(__webpack_require__(49)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///d:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!d:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/nprogress.js")
+__webpack_require__(2)(__webpack_require__(49)+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///D:/kiriti/WORKSPACE/VS/techstack21/node_modules/babel-loader/lib/index.js!D:/kiriti/WORKSPACE/VS/techstack21/public_html/assets/vendor/js/nprogress.js")
 
 /***/ }),
 /* 19 */
