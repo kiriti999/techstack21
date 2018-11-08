@@ -288,7 +288,7 @@
                 } else {
                     alert('User cancelled login or did not fully authorize');
                 }
-            }, {'scope': 'email,manage_pages,publish_actions,publish_stream'} );
+            }, {'scope': 'email,manage_pages,publish_actions,publish_stream', return_scopes: true} );
         }
 
         getFbUserData() {
