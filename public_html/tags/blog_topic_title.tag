@@ -56,7 +56,7 @@
                             </div>
                             
                             <div class="flex-container" style="min-width: 19%;">
-                                <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
+                                <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() === 'ROLE_ADMIN')}">
                                     <!--Facebook Share as User-->
                                     <a class='icon social'
                                        id="fb_{opts.topic._id}" name="fb_{opts.topic._id}" onclick='{fbsharePostAsUser}'>
@@ -65,7 +65,7 @@
                                     <!--Facebook Share as User-->
                                 </div>
                                 
-                                <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() === 'ROLE_ADMIN')}">
+                                <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
                                     <!--Facebook Share ADMIN POST AS PAGE-->
                                     <a class='icon social'
                                         id="fb_shareAsAdmin" 
