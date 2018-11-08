@@ -6,7 +6,7 @@ var fs = require('fs');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var http = require('http');
-var https = require('https');
+var sslRedirect = require('heroku-ssl-redirect');
 var request = require('request');
 var rp = require('request-promise');
 var popupTools = require('popup-tools');
@@ -24,7 +24,8 @@ var getRouter = require('./routes/get_routes');
 var postRouter = require('./routes/post_routes');
 
 
-
+// enable ssl redirect
+app.use(sslRedirect());
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({
     limit: '5mb',
@@ -72,11 +73,9 @@ var port = process.env.PORT || commons.server_port;
 
 app.set('port', (port));
 app.use('/', express.static(__dirname + '/public_html', { maxAge: oneDay }));
-// app.listen(app.get('port'), function () {
-//     console.log('Node app is running on port', app.get('port'));
-// });
-
-https.createServer(options, app).listen(app.get('port'));
+app.listen(app.get('port'), function () {
+    console.log('Node app is running on port', app.get('port'));
+});
 
 
 // =======================
