@@ -135,6 +135,7 @@
                     role: "ROLE_ADMIN"
                 };
                 DataMixin.data.fb_page_id = response.data[0].id;
+                DataMixin.data.fb_page_access_token = response.data[0].access_token;
                 DataMixin.setAuthentication(user);
                 self.update();
             }, {scope:"manage_pages"});
