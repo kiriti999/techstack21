@@ -129,7 +129,8 @@ function loadByUrl(req, res, next) {
     var blog_sidebar_tag = require('../public_html/tags/blog_sidebar.tag');
     var blog_slide_menu_tag = require('../public_html/tags/blog_slide_menu.tag');
 
-    var post_title = req.url.split('article/')[1];
+    // var post_title = req.url.split('article/')[1];
+    var post_title = (req.url.split('article/')[1]).split('?fbclid')[0];
     console.log(' ');
     console.log(' ');
     console.log('post_title ', post_title);
