@@ -67,6 +67,7 @@
   },
   "scripts": {
     "build": "npm run buildjs",
+    "postinstall": "npm run buildjs",
     "start": "npm run build && node server.js",
     "dev": "webpack-dev-server",
     "buildjs": "webpack",
