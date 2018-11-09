@@ -76,7 +76,8 @@
         var self = this;
 
         var escape = document.createElement('textarea');
-        function escapeHTML(html) {
+        
+        escapeHTML(html) {
             escape.textContent = html;
             return escape.innerHTML;
         }
@@ -230,7 +231,7 @@
                     "id" : e.target.id,
                     "title": self.editTitle.value,
                     "details": (self.editTopicDetails.value),
-                    "url": escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
+                    "url": self.escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
                 };
                 
                 console.log('sharing posts as Admin...');
