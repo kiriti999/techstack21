@@ -228,7 +228,7 @@
                 NProgress.start();
 
                 var txt = self.editTitle.value;
-                var new_txt = txt.replace(txt, '***'+ txt +'***'+ '\n' + self.editTopicDetails.value);
+                var new_txt = txt.replace(txt, '***'+ txt +'***'+ '\n' + '\n' + self.editTopicDetails.value);
                 $('.topicModal').text(new_txt);
 
                 console.log('modal text ', $('.topicModal').text());
@@ -236,7 +236,7 @@
                 var topic = {
                     "id" : e.target.id,
                     "title": self.editTitle.value,
-                    "details": (self.editTopicDetails.value),
+                    "details": $('.topicModal').text(),
                     "url": self.escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
                 };
 
