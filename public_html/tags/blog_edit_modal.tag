@@ -240,6 +240,7 @@
                     console.log("after posting to page: ", res) ;
                     $('.edit_submit').show();
                     $('.fb_submit').hide();
+                    NProgress.done();
                 });
 
                 $('#modal_edit_'+e.target.id).modal('hide');
