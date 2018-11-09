@@ -130,8 +130,9 @@
         getFbUserData() {
             FB.api('/me/accounts', function (response) {
                 console.log('page response', response);
+                console.log('page response', response.data);
                   var user = {
-                    username: response[0].name,
+                    username: response.data[0].name,
                     role: "ROLE_ADMIN"
                 };
                 DataMixin.setAuthentication(user);
