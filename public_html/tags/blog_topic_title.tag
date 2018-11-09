@@ -96,6 +96,7 @@
                                     </a>
                                     <!--twitter share-->
                                 </div>
+
                                 <div>
                                     <!--linkedin share-->
                                     <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=http://www.techstack21.com/article/{opts.topic.url}+&title={opts.topic.title}&summary=""&source=techstack21.in' target="_blank"  id="fb_{opts.topic._id}" >
@@ -103,6 +104,7 @@
                                     </a>
                                     <!--linkedin share-->
                                 </div>
+
                                 <div>
                                     <!--Google share as ADMIN-->
                                     <a if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() === 'ROLE_ADMIN')}" class="icon social tw" 
@@ -122,6 +124,7 @@
                                     </a>
                                     <!--Google share as ADMIN-->
                                 </div>
+
                                 <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
                                     <!--Google share as USER-->
                                     <a class="icon social tw" href="//plus.google.com/share?&url=http://www.techstack21.com/article/{opts.topic.url}" target="_blank" 
@@ -157,11 +160,10 @@
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
             document.getElementById('editTitle').value = opts.topic.title;
             document.getElementById('editTopicDetails').value = opts.topic.details;
-            console.log('e', e);
             console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
             if(e.target.dataset.facebookedit == 'facebookEdit') {
                 document.getElementById('fb_submit').style["display"] = "block";
-                document.getElementById('edit_submit').style["display"] = "none";
+                $('.fb_submit').hide();
             }
         }
 
