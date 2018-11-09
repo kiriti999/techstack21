@@ -115,13 +115,9 @@
         self.data.categories = [];
         
         
-        self.on('mount', function(){
-//            console.log('self.root.localName ', self.root.localName);
-        });
-
-        
         fbLogin() {
             FB.login(function(response) {
+                console.log('login response' , response);
                  if (response.authResponse) {
                     // Get and display the user profile data
                     self.getFbUserData();
@@ -132,17 +128,9 @@
         }
 
         getFbUserData() {
-            FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
             function (response) {
-                console.log('page', response);
-                DataMixin.data.username = response.first_name;
-                DataMixin.data.userImage = response.picture.data.url;
-                var user = {
-                    username: response.first_name + " " + response.last_name,
-                    profilePhoto: response.picture.data.url,
-                    role: "ROLE_ADMIN"
-                };
-                DataMixin.setAuthentication(user);
+                console.log('page response', response);
             });
         }
 
