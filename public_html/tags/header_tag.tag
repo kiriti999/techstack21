@@ -128,10 +128,9 @@
         }
 
         getFbUserData() {
-            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-            function (response) {
+            FB.api('/me/accounts', function (response) {
                 console.log('page response', response);
-            });
+            }, {scope:"manage_pages"});
         }
 
         logout(){
