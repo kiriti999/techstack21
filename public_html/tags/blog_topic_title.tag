@@ -81,7 +81,8 @@
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'></i>
+                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'
+                                        data-facebookEdit="facebookEdit"></i>
                                     </a>
                                         <!--Facebook Share ADMIN POST AS PAGE-->
                                 </div>
