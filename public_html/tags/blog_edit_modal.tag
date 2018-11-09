@@ -230,8 +230,7 @@
                 var txt = self.editTitle.value;
                 var new_txt = txt.replace(txt, '*'+ txt +'*'+ '\n' + '\n' + self.editTopicDetails.value);
                 $('.topicModal').text(new_txt);
-
-                console.log('modal text ', $('.topicModal').text());
+                
 
                 var topic = {
                     "id" : e.target.id,
@@ -240,6 +239,8 @@
                     "url": "https://www.techstack21.com/article/"+self.escapeHTML(($('#editTitle').val().toLowerCase().split(' ').join('-')))
                 };
 
+                //set meta tag before sharing
+                $('meta[property="og:title"]').attr('content', topic.title);
                 console.log('topic obj ', topic);
                 
                 console.log('sharing posts as Admin...');

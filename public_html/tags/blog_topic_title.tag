@@ -160,7 +160,6 @@
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
             document.getElementById('editTitle').value = opts.topic.title;
             document.getElementById('editTopicDetails').value = opts.topic.details;
-            console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
             if(e.target.dataset.facebookedit == 'facebookEdit') {
                 $('.edit_submit').hide();
                 $('.fb_submit').show();
