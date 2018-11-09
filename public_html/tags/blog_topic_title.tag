@@ -156,7 +156,7 @@
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
             document.getElementById('editTitle').value = opts.topic.title;
             document.getElementById('editTopicDetails').value = opts.topic.details;
-            console.log('e.target', e.target);
+            console.log('e', e);
             console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
             if(e.target.dataset.facebookEdit == 'facebookEdit') {
                 document.getElementById('fb_submit').style["display"] = "block";
