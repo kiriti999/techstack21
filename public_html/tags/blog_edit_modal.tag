@@ -64,7 +64,8 @@
             
             <div class="modal-footer" id="edit_form">
                 <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="{updateTopic}">Submit</button>
+                <button type="button" id="edit_submit" class="btn btn-primary" data-dismiss="modal" onclick="{updateTopic}">Submit</button>
+                <button type="button" id="fb_submit" class="btn btn-primary" data-dismiss="modal" onclick="{fbSharePostAsAdmin}">Share post to Facebook Page</button>
             </div>
         </div>
     </div>
@@ -121,7 +122,6 @@
                 alert('Title and details required');
             }
         }
- 
 
         previewFile2(e) {
             if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -171,7 +171,6 @@
             }
         }
         
-        
         //Code format for google blogger
         formatText2(e){
             var newtxt, selectedText, textAreaVal = "";
@@ -220,6 +219,23 @@
            savedRange =  e.target.selectionStart;
            //console.log('SAVED RANGE ', savedRange);
         }
+
+        //Facebook Admin share
+        fbSharePostAsAdmin(e) {
+            console.log('sharing posts as Admin...');
+            var topic = {
+                "title": self.editTitle.value,
+                "details": (self.editTopicDetails.value),
+                "url": escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
+            };
+
+            FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {description:topic.title, message: topic.details, link: topic.url, access_token: DataMixin.data.fb_page_access_token },
+            function(res) { 
+                console.log("after posting to page: ", res) ;
+                document.getElementById('fb_submit').style["display"] = "none";
+                document.getElementById('edit_submit').style["display"] = "block";
+            });
+        }
     </script>
     
     
@@ -229,6 +245,9 @@
         }
         .text_area_Vresize{
             resize:vertical ;
+        }
+        #fb_submit {
+            display: none;
         }
     </style>
 </blog_edit_modal>

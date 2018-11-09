@@ -74,7 +74,8 @@
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
                                         data-url='http://www.techstack21.com/article/{opts.topic.url}'
-                                        onclick='{fbSharePostAsAdmin}'>
+                                        data-facebookEdit="facebookEdit"
+                                        onclick='{openEditModal}'>
 
                                         <i class='fa fa-facebook' 
                                         data-title='{opts.topic.title}'
@@ -155,6 +156,10 @@
             document.getElementById('edit_form').children[1].setAttribute('id', opts.topic._id);
             document.getElementById('editTitle').value = opts.topic.title;
             document.getElementById('editTopicDetails').value = opts.topic.details;
+            if(e.target.dataset.facebookEdit.includes('facebookEdit')) {
+                document.getElementById('fb_submit').style["display"] = "block";
+                document.getElementById('edit_submit').style["display"] = "none";
+            }
         }
 
         deleteTopic(e){
@@ -280,14 +285,7 @@
             return unicode;
         }
 
-        //Facebook Admin share
-        fbSharePostAsAdmin(e) {
-            console.log('sharing posts as Admin...');
-            FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', { message: "hello", access_token: DataMixin.data.fb_page_access_token },
-            function(res) { 
-                console.log("after posting to page: ", res) ;
-            });
-        }
+        
     </script>
     
 </blog_topic_title>
