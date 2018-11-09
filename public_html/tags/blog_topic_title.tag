@@ -158,7 +158,7 @@
             document.getElementById('editTopicDetails').value = opts.topic.details;
             console.log('e.target', e.target);
             console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
-            if(e.target.dataset.facebookEdit.includes('facebookEdit')) {
+            if(e.target.dataset.facebookEdit == 'facebookEdit') {
                 document.getElementById('fb_submit').style["display"] = "block";
                 document.getElementById('edit_submit').style["display"] = "none";
             }
