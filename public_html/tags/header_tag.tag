@@ -130,11 +130,11 @@
         getFbUserData() {
             FB.api('/me/accounts', function (response) {
                 console.log('page response', response);
-                console.log('page response', response.data);
                   var user = {
                     username: response.data[0].name,
                     role: "ROLE_ADMIN"
                 };
+                DataMixin.data.fb_page_id = response.data[0].id;
                 DataMixin.setAuthentication(user);
                 self.update();
             }, {scope:"manage_pages"});

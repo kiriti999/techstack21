@@ -280,40 +280,13 @@
             return unicode;
         }
 
-        fbLogin() {
-            FB.login(function(response) {
-                 if (response.authResponse) {
-                    // Get and display the user profile data
-                    self.getFbUserData();
-                } else {
-                    alert('User cancelled login or did not fully authorize');
-                }
-            }, {'scope': 'email,manage_pages,publish_pages', return_scopes: true} );
-        }
-
-        getFbUserData() {
-            FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-            function (response) {
-                page = response.data[0];
-                console.log('page', page);
-                DataMixin.data.username = response.first_name;
-                DataMixin.data.userImage = response.picture.data.url;
-                //var user = {
-                    //username: response.first_name + " " + response.last_name,
-                    //profilePhoto: response.picture.data.url
-                //};
-                //DataMixin.setAuthentication(user);
-
-                FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
-                    function(res) { console.log("after posting to page: ", res) }
-                )
-            });
-        }
-
         //Facebook Admin share
         fbSharePostAsAdmin(e) {
-            self.fbLogin();
             console.log('sharing posts as Admin...');
+            FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', { message: "hello", access_token: page.access_token },
+            function(res) { 
+                console.log("after posting to page: ", res) ;
+            });
         }
     </script>
     
