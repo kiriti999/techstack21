@@ -227,8 +227,8 @@
             if(self.editTitle.value != null && self.editTitle.value.length > 3 && self.editTopicDetails.value.length > 3) {
                 NProgress.start();
 
-                var txt = self.editTitle.value;
-                var new_txt = txt.replace(txt, '*'+ txt +'*'+ '\n' + '\n' + self.editTopicDetails.value);
+                var txt = $('#editTitle').val();
+                var new_txt = txt.replace(txt, '*'+ txt +'*'+ '\n' + '\n' + $('#editTopicDetails').val());
                 $('.topicModal').text(new_txt);
 
                 var topic = {
