@@ -84,7 +84,7 @@
                             </a>
                         </li>
                         <li class="flex-item" if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
-                            <a data-toggle="collapse" id='login' data-target=".navbar-collapse.in" href="#" onclick="{fbLogin}">LOGIN</a>
+                            <a data-toggle="collapse" id='login' data-target=".navbar-collapse.in" href="#" onclick="{fbLogin}">LOGIN WITH FACEBOOK</a>
                         </li>
                         <li class="flex-item" if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() === 'ROLE_ADMIN')}">
                             <a data-toggle="collapse" id='logout' data-target=".navbar-collapse.in" href="#" onclick="{logout}">LOGOUT</a>
