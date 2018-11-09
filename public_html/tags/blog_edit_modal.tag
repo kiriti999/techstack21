@@ -227,6 +227,7 @@
             if(self.editTitle.value != null && self.editTitle.value.length > 3 && self.editTopicDetails.value.length > 3) {
                 NProgress.start();
 
+                const finalTitle = self.editTitle.value;
                 var txt = $('#editTitle').val();
                 var new_txt = txt.replace(txt, '*'+ txt +'*'+ '\n' + '\n' + $('#editTopicDetails').val());
                 $('.topicModal').text(new_txt);
@@ -234,8 +235,8 @@
                 var topic = {
                     "id" : e.target.id,
                     "title": $('#editTitle').val(),
-                    "details": $('.topicModal').text(),
-                    "url": "https://www.techstack21.com/article/"+self.escapeHTML((self.editTitle.value.toLowerCase().split(' ').join('-')))
+                    "details": $('.topicModal').val(),
+                    "url": "https://www.techstack21.com/article/"+self.escapeHTML((finalTitle.toLowerCase().split(' ').join('-')))
                 };
 
                 console.log('topic obj ', topic);
