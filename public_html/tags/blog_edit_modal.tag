@@ -64,7 +64,7 @@
             
             <div class="modal-footer" id="edit_form">
                 <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-                <button type="button" id="edit_submit" class="btn btn-primary" data-dismiss="modal" onclick="{updateTopic}">Submit</button>
+                <button type="button" class="btn btn-primary edit_submit" data-dismiss="modal" onclick="{updateTopic}">Submit</button>
                 <button type="button" class="btn btn-primary fb_submit" data-dismiss="modal" onclick="{fbSharePostAsAdmin}">Share post to Facebook Page</button>
             </div>
         </div>
@@ -237,8 +237,8 @@
                 FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {description:topic.title, message: topic.details, link: topic.url, access_token: DataMixin.data.fb_page_access_token },
                 function(res) { 
                     console.log("after posting to page: ", res) ;
-                    document.getElementById('fb_submit').style["display"] = "none";
-                    $('.fb_submit').show();
+                    $('.edit_submit').show();
+                    $('.fb_submit').hide();
                 });
 
                 $('#modal_edit_'+e.target.id).modal('hide');

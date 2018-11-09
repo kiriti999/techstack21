@@ -162,8 +162,8 @@
             document.getElementById('editTopicDetails').value = opts.topic.details;
             console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
             if(e.target.dataset.facebookedit == 'facebookEdit') {
-                document.getElementById('fb_submit').style["display"] = "block";
-                $('.fb_submit').hide();
+                $('.edit_submit').hide();
+                $('.fb_submit').show();
             }
         }
 
