@@ -134,8 +134,7 @@
         getFbUserData() {
             FB.api('/me/accounts', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
             function (response) {
-                page = response.data[0];
-                console.log('page', page);
+                console.log('page', response);
                 DataMixin.data.username = response.first_name;
                 DataMixin.data.userImage = response.picture.data.url;
                 var user = {
@@ -144,16 +143,9 @@
                     role: "ROLE_ADMIN"
                 };
                 DataMixin.setAuthentication(user);
-
-                FB.api('/'+page.id+'/feed', 'post', { message: "hello", access_token: page.access_token },
-                    function(res) { console.log("after posting to page: ", res) }
-                )
             });
         }
 
-
-        
-        
         logout(){
             $.ajax({
                 url:"/logout",
