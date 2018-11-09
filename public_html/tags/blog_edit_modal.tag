@@ -234,7 +234,7 @@
                 };
                 
                 console.log('sharing posts as Admin...');
-                FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {message: topic.details, access_token: DataMixin.data.fb_page_access_token },
+                FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {message: topic.details, link:topic.url, access_token: DataMixin.data.fb_page_access_token },
                 function(res) { 
                     console.log("after posting to page: ", res) ;
                     $('.edit_submit').show();
