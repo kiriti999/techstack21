@@ -237,7 +237,7 @@
                     "id" : e.target.id,
                     "title": self.editTitle.value,
                     "details": $('.topicModal').text(),
-                    "url": "https://www.techstack21.com/article/"+self.escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
+                    "url": "https://www.techstack21.com/article/"+self.escapeHTML($('#editTitle').text().toLowerCase().split(' ').join('-'))
                 };
 
                 console.log('topic obj ', topic);
