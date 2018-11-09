@@ -135,6 +135,7 @@
                     role: "ROLE_ADMIN"
                 };
                 DataMixin.setAuthentication(user);
+                self.update();
             }, {scope:"manage_pages"});
         }
 
