@@ -222,19 +222,30 @@
 
         //Facebook Admin share
         fbSharePostAsAdmin(e) {
-            console.log('sharing posts as Admin...');
-            var topic = {
-                "title": self.editTitle.value,
-                "details": (self.editTopicDetails.value),
-                "url": escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
-            };
+            
+            if(self.editTitle.value != null && self.editTitle.value.length > 3 && self.editTopicDetails.value.length > 3) {
+                NProgress.start();
 
-            FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {description:topic.title, message: topic.details, link: topic.url, access_token: DataMixin.data.fb_page_access_token },
-            function(res) { 
-                console.log("after posting to page: ", res) ;
-                document.getElementById('fb_submit').style["display"] = "none";
-                document.getElementById('edit_submit').style["display"] = "block";
-            });
+                var topic = {
+                    "id" : e.target.id,
+                    "title": self.editTitle.value,
+                    "details": (self.editTopicDetails.value),
+                    "url": escapeHTML(self.editTitle.value.toLowerCase().split(' ').join('-'))
+                };
+                
+                console.log('sharing posts as Admin...');
+                FB.api('/'+DataMixin.data.fb_page_id+'/feed', 'post', {description:topic.title, message: topic.details, link: topic.url, access_token: DataMixin.data.fb_page_access_token },
+                function(res) { 
+                    console.log("after posting to page: ", res) ;
+                    document.getElementById('fb_submit').style["display"] = "none";
+                    document.getElementById('edit_submit').style["display"] = "block";
+                });
+
+                $('#modal_edit_'+e.target.id).modal('hide');
+
+            } else {
+                alert('Title and details required');
+            }
         }
     </script>
     
