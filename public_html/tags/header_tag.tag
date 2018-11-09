@@ -128,8 +128,15 @@
         }
 
         getFbUserData() {
-            FB.api('/me/accounts', function (response) {
+            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            function (response) {
                 console.log('page response', response);
+                  var user = {
+                    username: response.first_name + " " + response.last_name,
+                    profilePhoto: response.picture.data.url,
+                    role: "ROLE_ADMIN"
+                };
+                DataMixin.setAuthentication(user);
             }, {scope:"manage_pages"});
         }
 
