@@ -74,6 +74,7 @@
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
                                         data-url='http://www.techstack21.com/article/{opts.topic.url}'
+                                        data-facebookEdit="facebookEdit"
                                         onclick='{openEditModal}'>
 
                                         <i class='fa fa-facebook' 
@@ -156,8 +157,11 @@
             document.getElementById('editTitle').value = opts.topic.title;
             document.getElementById('editTopicDetails').value = opts.topic.details;
             console.log('e', e);
-            document.getElementById('fb_submit').style["display"] = "block";
-            document.getElementById('edit_submit').style["display"] = "none";
+            console.log('e.target.dataset.facebookEdit', e.target.dataset.facebookEdit);
+            if(e.target.dataset.facebookEdit == 'facebookEdit') {
+                document.getElementById('fb_submit').style["display"] = "block";
+                document.getElementById('edit_submit').style["display"] = "none";
+            }
         }
 
         deleteTopic(e){
