@@ -124,16 +124,15 @@
                 } else {
                     alert('User cancelled login or did not fully authorize');
                 }
-            }, {'scope': 'email,manage_pages,publish_pages', return_scopes: true} );
+            }, {'scope': 'email, manage_pages, publish_pages', return_scopes: true} );
         }
 
         getFbUserData() {
-            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,picture'},
+            FB.api('/me/accounts', {fields: 'id, first_name, last_name, email, picture'},
             function (response) {
                 console.log('page response', response);
                   var user = {
-                    username: response.first_name + " " + response.last_name,
-                    profilePhoto: response.picture.data.url,
+                    username: response.name,
                     role: "ROLE_ADMIN"
                 };
                 DataMixin.setAuthentication(user);
