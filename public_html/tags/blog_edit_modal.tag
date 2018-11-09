@@ -235,9 +235,9 @@
 
                 var topic = {
                     "id" : e.target.id,
-                    "title": $('#editTitle').text(),
+                    "title": $('#editTitle').val(),
                     "details": $('.topicModal').text(),
-                    "url": "https://www.techstack21.com/article/"+self.escapeHTML(($('#editTitle').text().toLowerCase().split(' ').join('-')))
+                    "url": "https://www.techstack21.com/article/"+self.escapeHTML(($('#editTitle').val().toLowerCase().split(' ').join('-')))
                 };
 
                 console.log('topic obj ', topic);
