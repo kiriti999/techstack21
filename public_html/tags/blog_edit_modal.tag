@@ -228,16 +228,16 @@
                 NProgress.start();
 
                 var txt = self.editTitle.value;
-                var new_txt = txt.replace(txt, '***'+ txt +'***'+ '\n' + '\n' + self.editTopicDetails.value);
+                var new_txt = txt.replace(txt, '*'+ txt +'*'+ '\n' + '\n' + self.editTopicDetails.value);
                 $('.topicModal').text(new_txt);
 
                 console.log('modal text ', $('.topicModal').text());
 
                 var topic = {
                     "id" : e.target.id,
-                    "title": self.editTitle.value,
+                    "title": $('#editTitle').text(),
                     "details": $('.topicModal').text(),
-                    "url": "https://www.techstack21.com/article/"+self.escapeHTML($('#editTitle').text().toLowerCase().split(' ').join('-'))
+                    "url": "https://www.techstack21.com/article/"+self.escapeHTML(($('#editTitle').text().toLowerCase().split(' ').join('-')))
                 };
 
                 console.log('topic obj ', topic);
