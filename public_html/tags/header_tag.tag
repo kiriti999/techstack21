@@ -128,7 +128,7 @@
         }
 
         getFbUserData() {
-            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
+            FB.api('/me/accounts', {fields: 'id,first_name,last_name,email,picture'},
             function (response) {
                 console.log('page response', response);
                   var user = {
