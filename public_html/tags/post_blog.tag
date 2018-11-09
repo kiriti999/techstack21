@@ -55,6 +55,10 @@
             self.data.blogTopicsArr = DataMixin.data.topics;
             self.update();
         });
+
+        self.observable.on('login', function() {
+            self.update();
+        });
         //==============================OBSERVABLES END========================================//
         
     </script>
