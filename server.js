@@ -46,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //connect to mongo db
-mongoose.connect(keys.mongodb.dbUrl, { autoIndex: false } , () => {
+mongoose.connect(keys.mongodb.dbUrl, { autoIndex: false }, () => {
     console.log('connected to mongodb');
 });
 

@@ -14,7 +14,7 @@
   "author": "kiriti",
   "contributors": [],
   "dependencies": {
-    "bcrypt": "^2.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "cloudinary": "^1.8.0",
