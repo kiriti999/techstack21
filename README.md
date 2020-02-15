@@ -11,7 +11,7 @@ After clonning, run npm i
 You need to have heroku cli installed for you to be able to deploy on heroku. Also, set the heroku procfile.
 
 ```
-Give examples
+heroku cli
 ```
 
 ### Installing
