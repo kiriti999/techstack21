@@ -73,7 +73,7 @@
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'
+                                        data-url='https://www.techstack21.herokuapp.com/article/{opts.topic.url}'
                                         data-facebookEdit="facebookEdit"
                                         onclick='{openEditModal}'>
 
@@ -81,7 +81,7 @@
                                         data-title='{opts.topic.title}'
                                         data-details='{opts.topic.details}'
                                         data-postImageUrl='{opts.topic.url}'
-                                        data-url='http://www.techstack21.com/article/{opts.topic.url}'
+                                        data-url='https://www.techstack21.herokuapp.com/article/{opts.topic.url}'
                                         data-facebookEdit="facebookEdit"></i>
                                     </a>
                                         <!--Facebook Share ADMIN POST AS PAGE-->
@@ -99,7 +99,7 @@
 
                                 <div>
                                     <!--linkedin share-->
-                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=http://www.techstack21.com/article/{opts.topic.url}+&title={opts.topic.title}&summary=""&source=techstack21.in' target="_blank"  id="fb_{opts.topic._id}" >
+                                    <a class="icon social tw" href='https://www.linkedin.com/shareArticle?mini=true&url=https://www.techstack21.herokuapp.com/article/{opts.topic.url}+&title={opts.topic.title}&summary=""&source=techstack21.in' target="_blank"  id="fb_{opts.topic._id}" >
                                         <i class='fa fa-linkedin'></i>
                                     </a>
                                     <!--linkedin share-->
@@ -113,21 +113,21 @@
                                        data-title={opts.topic.title}
                                        data-details='{opts.topic.details}'
                                        data-imageurl='{opts.topic.postImageUrl}'
-                                       data-url='http://www.techstack21.com/article/{opts.topic.url}' 
+                                       data-url='https://www.techstack21.herokuapp.com/article/{opts.topic.url}' 
                                        onclick="{createGoogleBloggerPost}">
 
                                         <i class='fa fa-google-plus'
                                            data-title={opts.topic.title}
                                            data-details='{opts.topic.details}'
                                            data-imageurl='{opts.topic.postImageUrl}'
-                                           data-url='http://www.techstack21.com/article/{opts.topic.url}'></i>
+                                           data-url='https://www.techstack21.herokuapp.com/article/{opts.topic.url}'></i>
                                     </a>
                                     <!--Google share as ADMIN-->
                                 </div>
 
                                 <div if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.getRole() !== 'ROLE_ADMIN')}">
                                     <!--Google share as USER-->
-                                    <a class="icon social tw" href="//plus.google.com/share?&url=http://www.techstack21.com/article/{opts.topic.url}" target="_blank" 
+                                    <a class="icon social tw" href="//plus.google.com/share?&url=https://www.techstack21.herokuapp.com/article/{opts.topic.url}" target="_blank" 
                                         onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=400,height=620'); 
                                         return false;" alt="Share on Google+">
                                         <i class='fa fa-google-plus'></i>
@@ -192,7 +192,7 @@
         //twitter share
         twittersharePostAsUser(e){
             $("meta[property='og\\:title']").attr("content", opts.topic.title);
-            var url = 'http://twitter.com/share?text=' + opts.topic.title + '&url=http://http://www.techstack21.com&hashtags=Technology';
+            var url = 'http://twitter.com/share?text=' + opts.topic.title + '&url=http://https://www.techstack21.herokuapp.com&hashtags=Technology';
             window.open(url, 'popup', 'width=500,height=500');
         }
 
@@ -255,7 +255,7 @@
                 action_type: 'og.shares',
                 action_properties: JSON.stringify({
                     object: {
-                        'og:url': 'http://www.techstack21.com/article/' + opts.topic.url,
+                        'og:url': 'https://www.techstack21.herokuapp.com/article/' + opts.topic.url,
                         'og:title': opts.topic.title,
                         'og:description': opts.topic.details,
                         //'og:image': opts.topic.postImageUrl

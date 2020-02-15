@@ -21,7 +21,7 @@
         <!--  <a href="#">Videos</a>  -->
         <!--  <a href="#">Contact us</a>  -->
 
-            <li><a href="http://www.techstack21.com">Home</a></li>
+            <li><a href="https://www.techstack21.herokuapp.com">Home</a></li>
             <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">Javascript</a></li>
             <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">NodeJs</a></li>
             <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">Jquery</a></li>
