@@ -4,7 +4,7 @@
             
             <div class="flex-container"id="header_height">
                 <div class="flex-item" style="flex:30%">
-                    <a class="logo" href="https://www.techstack21.herokuapp.com" style="color: white">
+                    <a class="logo" href="https://techstack21.herokuapp.com/" style="color: white">
                     <svg viewBox="0 0 394.2502746582031 133.49066162109375" preserveAspectRatio="xMidYMid meet" class=" logo" id="fbfefdhc">
                         <defs id="SvgjsDefs1108"></defs>
                         <g id="SvgjsG1109" featurekey="root" fill="#ffffff" transform="matrix(1,0,0,1,0,0)"></g>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="flex-item flex-menu-items" style="flex:85%;align-self: flex-end;">
                     <ul class="flex-container menu-links">
-                        <li class="flex-item"> <a href="https://www.techstack21.herokuapp.com">Home</a> </li>
+                        <li class="flex-item"> <a href="https://techstack21.herokuapp.com/">Home</a> </li>
                         <li class="flex-item"> <a onclick="{getArticleByCategory}" href="/">Javascript</a> </li>
                         <li class="flex-item"> <a onclick="{getArticleByCategory}" href="/">NodeJs</a> </li>
                         <li class="flex-item"> <a onclick="{getArticleByCategory}" href="/">Jquery</a> </li>
