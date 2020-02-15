@@ -1,6 +1,6 @@
-# Project Title
+# Techstack 21
 
-Techstack21 - blog site developed to achieve SEO using sever side rendering using RiotJS, node, mongoose and heroku cloud
+Blog site developed to achieve SEO using sever side rendering using RiotJS, node, mongoose and heroku cloud
 
 ## Getting Started
 
