@@ -219,6 +219,7 @@ function getOAuthClient() {
 }
 
 function createGoogleBloggerPost(req, res, next) {
+    console.log('blogging...');
 
     var oauth2Client = getOAuthClient();
     var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details + '<span style=" font-size: 17px;">Check out more articles at: <a href="http://www.techstack21.com">www.techstack21.com</a></span>' + '</div>';

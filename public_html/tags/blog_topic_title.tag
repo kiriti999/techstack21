@@ -198,6 +198,7 @@
 
         //google blogger post
         createGoogleBloggerPost(e) {
+            console.log('blogging...');
             var params = {};
             NProgress.start();
             

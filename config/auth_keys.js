@@ -5,8 +5,10 @@ module.exports = {
     admins: ['kiriti.k999@gmail.com', 'techstack21@gmail.com', 'techstack21@outlook.com', 'techstack21@outlook.com', 'techstack21@hotmail.com'],
 
     google: {
-        clientID: "348308192190-2qt7m0fdfalqi6kgqu4ui0lkp1igaarq.apps.googleusercontent.com",
-        clientSecret: "Cm94wNw3AvxeRFaRqdUIBBWp"
+        // clientID: "348308192190-2qt7m0fdfalqi6kgqu4ui0lkp1igaarq.apps.googleusercontent.com",
+        clientID: "1073206522834-9b15arqe963f5f669sufga1k0dc9nq94.apps.googleusercontent.com",
+        // clientSecret: "Cm94wNw3AvxeRFaRqdUIBBWp"
+        clientSecret: "Sf4xkyERBHkqMz05UADosgQc"
     },
 
     facebook: {

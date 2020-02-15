@@ -22,17 +22,17 @@
         <!--  <a href="#">Contact us</a>  -->
 
             <li><a href="http://www.techstack21.com">Home</a></li>
-            <li><a onclick="{getArticleByCategory}" href="#">Javascript</a></li>
-            <li><a onclick="{getArticleByCategory}" href="#">NodeJs</a></li>
-            <li><a onclick="{getArticleByCategory}" href="#">Jquery</a></li>
-            <li><a onclick="{getArticleByCategory}" href="#">Latest Tech</a></li>
-            <li class="flex-item loginBtn fb-mobile" if="{localStorage.username === ''}">
+            <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">Javascript</a></li>
+            <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">NodeJs</a></li>
+            <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">Jquery</a></li>
+            <li if={(typeof DataMixin !== 'undefined' && DataMixin !== null) && (DataMixin.state!=="undefined")}><a onclick="{getArticleByCategory}" href="#">Latest Tech</a></li>
+            <li class="flex-item loginBtn fb-mobile" if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) &&  DataMixin.getUsername() === ''}">
                 <a data-toggle="collapse" id='login' data-target=".navbar-collapse.in" href="#" onclick="{fbLogin}">Login with Facebook</a>
             </li>
         </ul>
 
         <!--  <a href="#" id="adminLogin" onclick="{authenticate}" if="{opts.role == 'ROLE_USER' || DataMixin.getRole() != 'ROLE_ADMIN'}">ADMIN LOGIN</a>  -->
-        <li class="main-menu-item" if="{localStorage.username !== ''}">
+        <li class="main-menu-item" if="{(typeof DataMixin !== 'undefined' && DataMixin !== null) && DataMixin.getUsername() !== ''}">
             <a data-toggle="collapse" id='logout' data-target=".navbar-collapse.in" href="#" onclick="{logout}">LOGOUT</a>
         </li>
     </nav>
@@ -99,7 +99,6 @@
         
         
         self.on('mount', function () {
-            console.log(localStorage);
             
             if(document.getElementById) {
                 var menuRight = document.getElementById('cbp-spmenu-s2');

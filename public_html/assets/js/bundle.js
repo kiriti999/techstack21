@@ -3362,6 +3362,7 @@ module.exports = function(src) {
         }.bind(this)
 
         this.createGoogleBloggerPost = function(e) {
+            console.log('sharing posts as Admin...');
             var params = {};
 
             window.auth2.grantOfflineAccess().then(function(authResult){
@@ -3439,7 +3440,7 @@ module.exports = function(src) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('blog_post_details_user', '<div class="content col-md-9" 0> <div class="container-fluid"> <div class="row"> <div class="col-md-12 fadeInAnimation" id="blog_post_details" style="padding: 0 5%;"> <div class="row blog_item_title_post_details"> <div class="col-md-12 margin_bottom5" style="text-align: justify"> <h4 style="margin-top: 20px;"> <a class="blog_item_title" href="#">{article.title} </a> </h4> </div> </div> <div class="row"> <div class="col-md-12 col-md-12 col-xs-12 mobile_margin_bottom10"> <div class="blog_time"> <h5 class="blog_time" style="margin-top: 0;">By techstack21 on {article.created_at}</h5> </div> </div> </div> <div class="row"> <div class="col-md-12 col-md-12 col-xs-12"> <raw id="complete_topic_details"></raw> </div> </div> <div class="" style="padding: 7px 1px; margin-top: 10px;"> <div class="flex-container"> <div class="flex-item" style="max-width: 80%;"> <div> <a class="icon social" id="fb_shareAsUser" name="fb_{article.article_id}" data-title="{article.title}" data-details="{article.details}" data-postimageurl="{article.url}" data-url="www.techstack21.com/article/{article.url}" onclick="{fbSharePostAsUser}"> <i class="fa fa-facebook" data-title="{article.title}" data-details="{article.details}" data-postimageurl="{article.url}" data-url="www.techstack21.com/article/{article.url}"></i> </a> </div> <div> <a id="twitterShare" href="http://twitter.com/share?text={article.title}&url=www.techstack21.com/article/{article.url}&hashtags=tech" target="_blank" class="icon social tw" data-event="Twitter"> <i class="fa fa-twitter"></i> </a> </div> <div> <a class="icon social tw" href="https://www.linkedin.com/shareArticle?mini=true&url=www.techstack21.com/article/{article.url}+&title={article.title}&summary=""&source=techstack21.com" target="_blank" id="fb_{article.article_id}"> <i class="fa fa-linkedin"></i> </a> </div> <div> <a class="icon social tw" href="//plus.google.com/share?&url=www.techstack21.com/article/{article.url}" onclick="window.open(this.href, \'\',\'scrollbars=1\', \'width=400,height=620\'); return false;"> <i class="fa fa-google-plus"></i> </a> </div> </div> </div> </div> </div> </div> <div class="" style="margin-top: 50px;"> <div id="disqus_thread"></div> </div> </div> <div class="clear"></div> </div>', '', 'class="mobile_center"', function(opts) {
+/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('blog_post_details_user', '<div class="content col-md-9" 0> <div class="container-fluid"> <div class="row"> <div class="col-md-12 fadeInAnimation" id="blog_post_details" style="padding: 0 5%;"> <div class="row blog_item_title_post_details"> <div class="col-md-12 margin_bottom5" style="text-align: justify"> <h4 style="margin-top: 20px;"> <a class="blog_item_title" href="#">{article.title} </a> </h4> </div> </div> <div class="row"> <div class="col-md-12 col-md-12 col-xs-12 mobile_margin_bottom10"> <div class="blog_time"> <h5 class="blog_time" style="margin-top: 0;">By techstack21 on {article.created_at}</h5> </div> </div> </div> <div class="row"> <div class="col-md-12 col-md-12 col-xs-12"> <raw id="complete_topic_details"></raw> </div> </div> <div class="" style="padding: 7px 1px; margin-top: 10px;"> <div class="flex-container"> <div class="flex-item" style="max-width: 80%;"> <div> <a class="icon social" id="fb_shareAsUser" name="fb_{article.article_id}" data-title="{article.title}" data-details="{article.details}" data-postimageurl="{article.url}" data-url="www.techstack21.com/article/{article.url}" onclick="{fbSharePostAsUser}"> <i class="fa fa-facebook" data-title="{article.title}" data-details="{article.details}" data-postimageurl="{article.url}" data-url="www.techstack21.com/article/{article.url}"></i> </a> </div> <div> <a id="twitterShare" href="http://twitter.com/share?text={article.title}&url=www.techstack21.com/article/{article.url}&hashtags=tech" target="_blank" class="icon social tw" data-event="Twitter"> <i class="fa fa-twitter"></i> </a> </div> <div> <a class="icon social tw" href="https://www.linkedin.com/shareArticle?mini=true&url=www.techstack21.com/article/{article.url}+&title={article.title}&summary=""&source=techstack21.com" target="_blank" id="fb_{article.article_id}"> <i class="fa fa-linkedin"></i> </a> </div> <div> <a class="icon social tw" id="blogger_shareAsAdmin" name="blogger_{post_details.article_id}" data-title="{post_details.title}" data-details="{post_details}" data-postimageurl="{post_details.postImageUrl}" data-url="www.techstack21.com/article/{post_details.title}" onclick="{createGoogleBloggerPost}"> <i class="fa fa-google-plus" data-title="{post_details.title}" data-details="{post_details}" data-postimageurl="{post_details.postImageUrl}" data-url="www.techstack21.com/article/{post_details.title}"></i> </a> </div> </div> </div> </div> </div> </div> <div class="" style="margin-top: 50px;"> <div id="disqus_thread"></div> </div> </div> <div class="clear"></div> </div>', '', 'class="mobile_center"', function(opts) {
         var self = this;
         self.data = {};
 
@@ -3461,6 +3462,40 @@ module.exports = function(src) {
                     NProgress.done();
                 }
             });
+        }.bind(this)
+
+        this.createGoogleBloggerPost = function(e) {
+            console.log('blogging...');
+            var params = {};
+
+            window.auth2.grantOfflineAccess().then(function(authResult){
+                if(authResult['code']){
+                    params = {
+                        title: e.target.dataset.title,
+                        details: e.target.dataset.details,
+                        postImageUrl: e.target.dataset.postImageUrl,
+                        url: e.target.dataset.url,
+                        exchangeCode: authResult['code']
+                    }
+
+                    console.log('EXCHANGE CODE CLIENT SIDE ', authResult['code']);
+
+                    $.ajax({
+                        url:'/createGoogleBloggerPost',
+                        type: 'POST',
+                        data:params,
+                        success:function(res){
+                            console.log('Blogger post status ', res);
+                            if(res == "BLOG POST SUCCESS")
+                            alert('Posted article to google blogger successfully!');
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    })
+                }
+            });
+            console.log('google blogger params ', params);
         }.bind(this)
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -3776,7 +3811,7 @@ module.exports = function(src) {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('blog_slide_menu', '<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2"> <div style="background: #fff;display: flex;"> <div style="flex:1"> <h3>techstack21</h3> </div> <div id="menuClose" class="fa fa-close"></div> </div> <ul id="main-menu-list"> <li class="main-menu-item" if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.getRole() === \'ROLE_ADMIN\')}"> <a> <span class="create_button btn btn-xs btn-default" id="post_new_topic_btn" data-toggle="modal" data-target="#blog_posting_modal">+ CREATE POST</span> </a> </li> <li><a href="http://www.techstack21.com">Home</a></li> <li><a onclick="{getArticleByCategory}" href="#">Javascript</a></li> <li><a onclick="{getArticleByCategory}" href="#">NodeJs</a></li> <li><a onclick="{getArticleByCategory}" href="#">Jquery</a></li> <li><a onclick="{getArticleByCategory}" href="#">Latest Tech</a></li> <li class="flex-item loginBtn fb-mobile" if="{localStorage.username === \'\'}"> <a data-toggle="collapse" id="login" data-target=".navbar-collapse.in" href="#" onclick="{fbLogin}">Login with Facebook</a> </li> </ul> <li class="main-menu-item" if="{localStorage.username !== \'\'}"> <a data-toggle="collapse" id="logout" data-target=".navbar-collapse.in" href="#" onclick="{logout}">LOGOUT</a> </li> </nav>', '.fb-mobile { background-color: #4C69BA; background-image: linear-gradient(#4C69BA, #3B55A0); text-shadow: 0 -1px 0 #354C8C; } .fb-mobile:before { border-right: #364e92 1px solid; background: url(\'https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png\') 6px 6px no-repeat; } .fb-mobile:hover, .fb-mobile:focus { color: white; }', '', function(opts) {
+/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('blog_slide_menu', '<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2"> <div style="background: #fff;display: flex;"> <div style="flex:1"> <h3>techstack21</h3> </div> <div id="menuClose" class="fa fa-close"></div> </div> <ul id="main-menu-list"> <li class="main-menu-item" if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.getRole() === \'ROLE_ADMIN\')}"> <a> <span class="create_button btn btn-xs btn-default" id="post_new_topic_btn" data-toggle="modal" data-target="#blog_posting_modal">+ CREATE POST</span> </a> </li> <li><a href="http://www.techstack21.com">Home</a></li> <li if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.state!==⁗undefined⁗)}"><a onclick="{getArticleByCategory}" href="#">Javascript</a></li> <li if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.state!==⁗undefined⁗)}"><a onclick="{getArticleByCategory}" href="#">NodeJs</a></li> <li if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.state!==⁗undefined⁗)}"><a onclick="{getArticleByCategory}" href="#">Jquery</a></li> <li if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && (DataMixin.state!==⁗undefined⁗)}"><a onclick="{getArticleByCategory}" href="#">Latest Tech</a></li> <li class="flex-item loginBtn fb-mobile" if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) &&  DataMixin.getUsername() === \'\'}"> <a data-toggle="collapse" id="login" data-target=".navbar-collapse.in" href="#" onclick="{fbLogin}">Login with Facebook</a> </li> </ul> <li class="main-menu-item" if="{(typeof DataMixin !== \'undefined\' && DataMixin !== null) && DataMixin.getUsername() !== \'\'}"> <a data-toggle="collapse" id="logout" data-target=".navbar-collapse.in" href="#" onclick="{logout}">LOGOUT</a> </li> </nav>', '.fb-mobile { background-color: #4C69BA; background-image: linear-gradient(#4C69BA, #3B55A0); text-shadow: 0 -1px 0 #354C8C; } .fb-mobile:before { border-right: #364e92 1px solid; background: url(\'https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png\') 6px 6px no-repeat; } .fb-mobile:hover, .fb-mobile:focus { color: white; }', '', function(opts) {
 
         SharedMixin = {
             observable: riot.observable()
@@ -3832,7 +3867,6 @@ module.exports = function(src) {
         }.bind(this)
 
         self.on('mount', function () {
-            console.log(localStorage);
 
             if(document.getElementById) {
                 var menuRight = document.getElementById('cbp-spmenu-s2');
@@ -3932,6 +3966,7 @@ module.exports = function(src) {
         }.bind(this)
 
         this.createGoogleBloggerPost = function(e) {
+            console.log('blogging...');
             var params = {};
             NProgress.start();
 

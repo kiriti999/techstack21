@@ -68,10 +68,27 @@
                                 </div>
 
                                 <div>
-                                    <!--  google share  -->
+                                    <!--  google share
                                     <a class="icon social tw" href="//plus.google.com/share?&url=www.techstack21.com/article/{article.url}" onclick="window.open(this.href, '','scrollbars=1', 'width=400,height=620'); return false;">
                                         <i class='fa fa-google-plus'></i>
-                                    </a>
+                                    </a>  -->
+                                     <!--Google share as ADMIN-->
+                                        <a class="icon social tw" 
+                                           id="blogger_shareAsAdmin" 
+                                            name="blogger_{post_details.article_id}" 
+                                            data-title={post_details.title}
+                                            data-details='{post_details}'
+                                            data-postImageUrl='{post_details.postImageUrl}'
+                                            data-url='www.techstack21.com/article/{post_details.title}' 
+                                            onclick="{createGoogleBloggerPost}">
+
+                                            <i class='fa fa-google-plus'
+                                            data-title={post_details.title}
+                                            data-details='{post_details}'
+                                            data-postImageUrl='{post_details.postImageUrl}'
+                                            data-url='www.techstack21.com/article/{post_details.title}'></i>
+                                        </a>
+                                        <!--Google share as ADMIN-->
                                 </div>
                             </div>
                         </div>
@@ -115,6 +132,40 @@
                     NProgress.done();
                 }
             });
+        }
+
+        createGoogleBloggerPost(e) {
+            console.log('blogging...');
+            var params = {};
+            
+            window.auth2.grantOfflineAccess().then(function(authResult){
+                if(authResult['code']){
+                    params = {
+                        title: e.target.dataset.title,
+                        details: e.target.dataset.details,
+                        postImageUrl: e.target.dataset.postImageUrl,
+                        url: e.target.dataset.url,
+                        exchangeCode: authResult['code']
+                    }
+                    
+                    console.log('EXCHANGE CODE CLIENT SIDE ', authResult['code']);
+                    
+                    $.ajax({
+                        url:'/createGoogleBloggerPost',
+                        type: 'POST',
+                        data:params,
+                        success:function(res){
+                            console.log('Blogger post status ', res);
+                            if(res == "BLOG POST SUCCESS")
+                            alert('Posted article to google blogger successfully!');
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    })
+                }
+            });
+            console.log('google blogger params ', params);
         }
     </script>
 </blog_post_details_USER>

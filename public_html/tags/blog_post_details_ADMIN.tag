@@ -130,6 +130,7 @@
         }
         
         createGoogleBloggerPost(e) {
+            console.log('sharing posts as Admin...');
             var params = {};
             
             window.auth2.grantOfflineAccess().then(function(authResult){
