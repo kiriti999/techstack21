@@ -24,7 +24,7 @@ function getLinkedInToken(req, res, next) {
     var params = {
         grant_type: 'authorization_code',
         code: req.body.code,
-        redirect_uri: commons.socialLogin_call_back_url,
+        redirect_uri: commons.api_url,
         client_id: '81qr39kkcl6srr',
         client_secret: '7OhisqIt4POtuowV'
     };
@@ -215,14 +215,14 @@ function postApiResponse(url, req, next, res) {
 //BLOGGER API - START
 //==================================
 function getOAuthClient() {
-    return new OAuth2(keys.google.clientID, keys.google.clientSecret, commons.socialLogin_call_back_url);
+    return new OAuth2(keys.google.clientID, keys.google.clientSecret, commons.api_url);
 }
 
 function createGoogleBloggerPost(req, res, next) {
     console.log('blogging...');
 
     var oauth2Client = getOAuthClient();
-    var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details + '<span style=" font-size: 17px;">Check out more articles at: <a href="http://www.techstack21.com">www.techstack21.com</a></span>' + '</div>';
+    var modifiedText = '<div style="white-space: pre-wrap;">' + req.body.details + '<span style=" font-size: 17px;">Check out more articles at: <a href="http://{DataMixin.api_url}">{DataMixin.api_url}</a></span>' + '</div>';
     var blogParams = {
         title: req.body.title,
         content: modifiedText,

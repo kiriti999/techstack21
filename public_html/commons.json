@@ -1,14 +1,13 @@
 {
-    "commons": {
-        "api_url": "http://localhost:4567",
-        "socialLogin_call_back_url": "http://www.techstack21.com",
-        "_socialLogin_call_back_url": "http://localhost:5027",
-        "FBVars": {
-            "fbAppId": "227923824483815"
-        },
-        "google_blogger": {
-            "id": "9170308257488689808"
-        },
-        "server_port": "5029"
-    }
+  "commons": {
+    "_api_url": "http://localhost:4567",
+    "api_url": "https://www.techstack21.herokuapp.com",
+    "FBVars": {
+      "fbAppId": "227923824483815"
+    },
+    "google_blogger": {
+      "id": "9170308257488689808"
+    },
+    "server_port": "5029"
+  }
 }

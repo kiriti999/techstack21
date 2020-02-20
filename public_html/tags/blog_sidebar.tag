@@ -9,7 +9,7 @@
                     <div class="col-md-12" id="recent_parent">
                         <ul each="{item, i in data.recents}" >
                             <li class="padding_12_0">
-                                <a id="{item._id}" href='www.techstack21.com/article/{item.url}'>{item.title}</a>
+                                <a id="{item._id}" href='{DataMixin.api_url}/article/{item.url}'>{item.title}</a>
                             </li>
                         </ul>
                     </div>

@@ -14,17 +14,17 @@ var secretKey = "myscope";
 techstack21_Security = {
 
     createJWT: function (admin, req, res) {
-        
+
         var claims = {
             sub: 'Social Authentication',
-            iss: 'https://www.techstack21.com',
+            iss: 'https://{DataMixin.api_url}',
             admin: admin
         };
         var jwt = nJwt.create(claims, secretKey);
         jwt.setExpiration(new Date().getTime() + (60 * 60 * 1000 * 1)); // One hour from now
         //console.log(jwt);
         console.log('#####################################')
-        console.log('*********TOKEN CREATED: ',jwt);
+        console.log('*********TOKEN CREATED: ', jwt);
         console.log('#####################################')
         var token = jwt.compact();
         var cookies = new Cookies(req, res).set('access_token', token, {
@@ -64,8 +64,8 @@ techstack21_Security = {
             }
         });
     },
-    
-    
+
+
     isServerPageAuthenticated: function (req, res, next) {
 
         console.log('****************************************************');
@@ -97,7 +97,7 @@ techstack21_Security = {
             }
         });
     },
-    
+
 
     setAuthentication: function (role) {
         storage.setItemSync('role', role);

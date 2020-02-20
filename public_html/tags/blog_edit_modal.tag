@@ -236,7 +236,7 @@
                     "id" : e.target.id,
                     "title": $('#editTitle').val(),
                     "details": $('.topicModal').val(),
-                    "url": "https://www.techstack21.com/article/"+self.escapeHTML((finalTitle.toLowerCase().split(' ').join('-')))
+                    "url": "https://{DataMixin.api_url}/article/"+self.escapeHTML((finalTitle.toLowerCase().split(' ').join('-')))
                 };
 
                 console.log('topic obj ', topic);

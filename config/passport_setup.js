@@ -32,13 +32,13 @@ passport.deserializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: keys.google.clientID,
     clientSecret: keys.google.clientSecret,
-    callbackURL: "" + commons.socialLogin_call_back_url + '/auth/google/callback',
+    callbackURL: "" + commons.api_url + '/auth/google/callback',
 },
     function (accessToken, refreshToken, profile, done) {
 
         var claims = {
             sub: 'Social Authentication',
-            iss: 'https://www.techstack21.com',
+            iss: 'https://{DataMixin.api_url}',
             accessToken: accessToken
         };
         var jwt = nJwt.create(claims, keys.session.cookieKey);
@@ -83,7 +83,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: keys.facebook.clientID,
     clientSecret: keys.facebook.clientSecret,
-    callbackURL: "" + commons.socialLogin_call_back_url + "/auth/facebook/callback",
+    callbackURL: "" + commons.api_url + "/auth/facebook/callback",
     profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified', 'photos']
 },
     function (accessToken, refreshToken, profile, done) {
