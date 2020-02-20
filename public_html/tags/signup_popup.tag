@@ -14,7 +14,7 @@
             <div class="flex-item">
                 <div class="signupBox">
                     
-                    <div class="fb" data-social="facebook" onclick="{socialAuthentication}">
+                    <div class="fb" data-social="facebook" onclick="{fbLogin}">
                         <i class="fa fa-facebook" style="color: white;">
                             <span class="">Sign in with Facebook</span>
                         </i>
@@ -22,11 +22,11 @@
                     
                     <div class="padding_top10"></div>
                     
-                    <div class="gp" data-social="google" onclick="{socialAuthentication}">
+                    <!--  <div class="gp" data-social="google" onclick="{socialAuthentication}">
                         <i class="fa fa-google-plus" style="color:white">
                             <span> Sign in with Google</span>
                         </i>
-                    </div>
+                    </div>  -->
                 </div>
                 
             </div>
@@ -56,6 +56,34 @@
         }
         self.update(self.previousState);
     });
+
+        fbLogin() {
+            FB.login(function(response) {
+                console.log('login response' , response);
+                 if (response.authResponse) {
+                    // Get and display the user profile data
+                    self.getFbUserData();
+                } else {
+                    alert('User cancelled login or did not fully authorize');
+                }
+            }, {'scope': 'email, manage_pages, publish_pages', return_scopes: true} );
+        }
+
+        getFbUserData() {
+            FB.api('/me/accounts', function (response) {
+                console.log('page response', response);
+                  var user = {
+                    username: response.data[0].name,
+                    role: "ROLE_ADMIN"
+                };
+                DataMixin.data.fb_page_id = response.data[0].id;
+                DataMixin.data.fb_page_access_token = response.data[0].access_token;
+                DataMixin.setAuthentication(user);
+                self.observable.trigger('login');
+                self.update();
+                riot.route('/blog_topic_title');
+            }, {scope:"manage_pages"});
+        }
 
     socialAuthentication(e) {
         NProgress.start();

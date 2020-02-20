@@ -4213,7 +4213,7 @@ module.exports = function(src) {
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('signup_popup', '<div id="wraper" if="{DataMixin.state==⁗signup_popup⁗}"> <div class="flex-container flex-item-center"> <div class="flex-item"> </div> <div class="flex-item signup_subtite"> </div> <div class="flex-item"> <div class="signupBox"> <div class="fb" data-social="facebook" onclick="{socialAuthentication}"> <i class="fa fa-facebook" style="color: white;"> <span class="">Sign in with Facebook</span> </i> </div> <div class="padding_top10"></div> <div class="gp" data-social="google" onclick="{socialAuthentication}"> <i class="fa fa-google-plus" style="color:white"> <span> Sign in with Google</span> </i> </div> </div> </div> </div> </div>', '#footerText { padding: 5px 10px; bottom: 0px; position: fixed; }', 'id="signup"', function(opts) {
+/* WEBPACK VAR INJECTION */(function(riot) {riot.tag2('signup_popup', '<div id="wraper" if="{DataMixin.state==⁗signup_popup⁗}"> <div class="flex-container flex-item-center"> <div class="flex-item"> </div> <div class="flex-item signup_subtite"> </div> <div class="flex-item"> <div class="signupBox"> <div class="fb" data-social="facebook" onclick="{fbLogin}"> <i class="fa fa-facebook" style="color: white;"> <span class="">Sign in with Facebook</span> </i> </div> <div class="padding_top10"></div> </div> </div> </div> </div>', '#footerText { padding: 5px 10px; bottom: 0px; position: fixed; }', 'id="signup"', function(opts) {
 
     this.mixin(SharedMixin);
     var self = this;
@@ -4227,6 +4227,34 @@ module.exports = function(src) {
         }
         self.update(self.previousState);
     });
+
+        this.fbLogin = function() {
+            FB.login(function(response) {
+                console.log('login response' , response);
+                 if (response.authResponse) {
+
+                    self.getFbUserData();
+                } else {
+                    alert('User cancelled login or did not fully authorize');
+                }
+            }, {'scope': 'email, manage_pages, publish_pages', return_scopes: true} );
+        }.bind(this)
+
+        this.getFbUserData = function() {
+            FB.api('/me/accounts', function (response) {
+                console.log('page response', response);
+                  var user = {
+                    username: response.data[0].name,
+                    role: "ROLE_ADMIN"
+                };
+                DataMixin.data.fb_page_id = response.data[0].id;
+                DataMixin.data.fb_page_access_token = response.data[0].access_token;
+                DataMixin.setAuthentication(user);
+                self.observable.trigger('login');
+                self.update();
+                riot.route('/blog_topic_title');
+            }, {scope:"manage_pages"});
+        }.bind(this)
 
     this.socialAuthentication = function(e) {
         NProgress.start();
